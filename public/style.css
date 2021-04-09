@@ -1,3 +1,6 @@
+/* Reset styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +12,52 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+}
+
+input,
+button {
+    font-family: inherit;
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Variables */
+:root {
+    /* Colors */
+    --primary-color: #7f39fb;
+    --secondary-color: #ebe9eb;
+    --text-color: #505668;
+    --text-color-alpha: rgba(80, 86, 104, 0.5);
+    --white-color: #fff;
+    --error-color: #e84545;
+    --error-color-alpha: rgba(232, 69, 69, 0.8);
+
+    /* Margin */
+    --margin-largest: 3.6rem;
+    --margin-large: 2.4rem;
+    --margin-default: 1.2rem;
+    --margin-small: 0.8rem;
+    --margin-smallest: 0.4rem;
+
+    /* Padding */
+    --padding-large: 2.4rem;
+    --padding-default: 1.2rem;
+    --padding-small: 0.8rem;
+}
+
+/* Utility classes */
+.text-normal {
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+.text-small {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
 }

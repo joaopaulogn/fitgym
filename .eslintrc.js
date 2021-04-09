@@ -32,11 +32,16 @@ module.exports = {
         extensions: ['.tsx'],
       },
     ],
-    'import/prefer-default-export': 'off',
+    'lines-between-class-members': [
+      'error',
+      'always',
+      { exceptAfterSingleLine: true },
+    ],
+    'import/prefer-default-export': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-member-accessibility': 1,
     '@typescript-eslint/explicit-module-boundary-types': 0,
-    'no-use-before-define': 'off',
+    'no-use-before-define': 0,
     '@typescript-eslint/no-use-before-define': ['error'],
     'import/extensions': [
       'error',
