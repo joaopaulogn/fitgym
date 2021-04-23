@@ -11,9 +11,10 @@ const Container = styled.label`
     cursor: pointer;
   }
 
-  .checkbox {
+  span {
     display: flex;
     align-items: center;
+    color: var(--primary-color);
     margin-right: var(--margin-small);
     outline: none;
 
@@ -22,10 +23,6 @@ const Container = styled.label`
       visibility: hidden;
       opacity: 0;
     }
-  }
-
-  .icon {
-    color: var(--primary-color);
   }
 `;
 

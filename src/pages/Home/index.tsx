@@ -1,8 +1,8 @@
 import React from 'react';
 import Container from './style';
-import Footer from '../../components/Footer/index';
-import Login from '../../components/Login/index';
 import Banner from '../../assets/banner.svg';
+import Footer from '../../components/Footer';
+import AuthRoutes from '../../routes/AuthRoutes';
 
 const Home = () => (
   <Container>
@@ -25,7 +25,7 @@ const Home = () => (
     </div>
 
     <div className="sub-content">
-      <Login />
+      <AuthRoutes />
     </div>
   </Container>
 );

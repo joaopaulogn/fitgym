@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: var(--margin-large);
-
   .text {
     color: var(--text-color);
-    margin-right: var(--margin-small);
+    margin-bottom: var(--margin-largest);
   }
 
-  .action {
-    color: var(--primary-color);
+  .button {
+    text-align: left;
     font-weight: 500;
+    color: var(--primary-color);
   }
 `;
 

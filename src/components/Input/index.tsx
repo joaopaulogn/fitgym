@@ -1,29 +1,56 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import Container from './style';
-import removeErrorAlert from './event';
-import Icon from '../Icon/index';
+import Icon from '../Icon';
+import { handleClick, handleFocus } from './events/removeInvalidState';
+import addValidState from './events/addValidState';
 
-interface InputProps {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
-  name: string;
-  id: string;
-  placeholder: string;
-  iconName: string;
+  name?: string;
+  id?: string;
+  title?: string;
+  errorMessage?: string;
+  minLength?: number;
+  maxLength?: number;
+  min?: number;
+  max?: number;
+  placeholder?: string;
+  icon?: string;
+  children?: React.ReactElement;
 }
 
-const Input = ({ type, name, id, placeholder, iconName }: InputProps) => (
-  <Container className="input">
+const Input = ({
+  type,
+  name,
+  id,
+  title,
+  minLength,
+  maxLength,
+  min,
+  max,
+  placeholder,
+  icon,
+  children,
+}: InputProps) => (
+  <Container>
     <input
       type={type}
       name={name}
       id={id}
-      placeholder={placeholder}
       required
+      minLength={minLength}
+      maxLength={maxLength}
+      min={min}
+      max={max}
+      title={title}
+      placeholder={placeholder}
       className="text-normal"
-      onClick={removeErrorAlert}
+      onClick={handleClick}
+      onFocus={handleFocus}
+      onChange={addValidState}
     />
-    <Icon icon={iconName} />
-    <span role="alert" aria-hidden="true" className="error text-small" />
+    <Icon icon={icon} />
+    {children}
   </Container>
 );
 

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
+  min-width: 34rem;
+  max-width: 35rem;
+
   .heading {
     &--main {
       display: block;
@@ -8,13 +11,18 @@ const Container = styled.div`
   }
 
   .form {
-    max-width: 100%;
+    max-width: 34rem;
+    margin-bottom: var(--margin-large);
+
+    &__field {
+      margin-top: var(--margin-default);
+    }
 
     &__container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: var(--margin-large) 0;
+      margin-top: var(--margin-large);
     }
 
     &__link {

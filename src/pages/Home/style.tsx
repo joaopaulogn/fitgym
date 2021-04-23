@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.section`
   height: 100vh;
   display: flex;
   justify-content: space-between;
   padding: var(--padding-large);
   background-color: var(--primary-color);
-  color: var(--white-color);
 
   .title {
     font-size: 4.6rem;
@@ -29,6 +28,11 @@ const Container = styled.div`
     }
   }
 
+  .title,
+  .subtitle {
+    color: var(--white-color);
+  }
+
   .banner {
     height: 47.8rem;
     width: 71.5rem;
@@ -48,6 +52,22 @@ const Container = styled.div`
 
     background-color: var(--white-color);
     border-radius: 0.8rem;
+  }
+
+  .redirect {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--margin-large);
+
+    & .text {
+      color: var(--text-color);
+      margin-right: var(--margin-small);
+    }
+
+    & .action {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
   }
 `;
 

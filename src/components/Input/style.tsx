@@ -3,36 +3,35 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--margin-default);
-  color: var(--text-color);
+  justify-content: center;
   position: relative;
 
   input {
-    min-width: 34rem;
-    padding: var(--padding-default) 0 var(--padding-default) 3.2rem;
+    min-width: 100%;
     border-bottom: 0.1rem solid var(--text-color-alpha);
+    padding: var(--padding-default) 0 var(--padding-default)
+      calc(2.4rem + var(--margin-small));
+    color: var(--text-color-alpha);
+
+    &[type='password'] {
+      padding-right: calc(2.4rem + var(--margin-small));
+    }
 
     &::placeholder {
       color: var(--text-color-alpha);
     }
 
-    &:focus,
-    &:valid {
+    &.valid {
       color: var(--primary-color);
-      border-bottom-color: var(--primary-color);
-
-      &::placeholder,
-      & + .icon,
-      & + .icon + .icon {
-        color: var(--primary-color);
-      }
     }
 
-    &:invalid {
-      color: var(--text-color-alpha);
+    &:focus,
+    &.valid {
+      border-bottom-color: var(--primary-color);
 
-      &::placeholder {
-        color: var(--text-color-alpha);
+      & + .icon,
+      & + .icon + .button {
+        color: var(--primary-color);
       }
     }
 
@@ -41,45 +40,40 @@ const Container = styled.div`
       border-bottom-color: var(--error-color-alpha);
 
       &::placeholder,
-      & + .icon {
+      & + .icon,
+      & + .icon + .button {
         color: var(--error-color-alpha);
       }
     }
 
     &:focus,
-    &:valid {
-      &::placeholder,
-      & + .icon {
+    &.valid,
+    &.invalid {
+      transition: all 0.4s;
+
+      & + .icon,
+      & + .icon + .button {
         transition: all 0.4s;
       }
     }
   }
 
-  .icon {
+  .icon,
+  .button {
     position: absolute;
-    top: 50%;
-
-    transform: translateY(-50%);
+    top: 0.9rem;
   }
 
-  & > .icon + .icon {
-    color: var(--text-color-alpha);
+  .icon {
+    left: 0;
+  }
+
+  .button {
+    right: 0;
     outline: none;
-    right: 0.4rem;
-    cursor: pointer;
-  }
 
-  .error {
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-    color: var(--error-color);
-    margin-top: var(--margin-smallest);
-
-    &.visible {
-      display: block;
-      visibility: visible;
-      opacity: 1;
+    &:hover {
+      cursor: pointer;
     }
   }
 `;

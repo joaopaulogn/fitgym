@@ -24,8 +24,11 @@ module.exports = {
   },
   plugins: ['react', 'import', 'jsx-a11y', 'prettier'],
   rules: {
+    'import/no-cycle': 0,
+    'no-plusplus': 0,
     'no-console': 0,
     'no-implicity-any': 0,
+    'react/jsx-props-no-spreading': 0,
     'react/jsx-filename-extension': [
       'error',
       {

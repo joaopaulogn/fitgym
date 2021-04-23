@@ -1,37 +1,28 @@
 import React from 'react';
 import Container from './style';
-import Icon from '../Icon/index';
-import toggleCheckbox from './event';
+import Icon from '../Icon';
+import changeState from './events/changeState';
 
-const Checkbox = () => (
+interface CheckboxProps {
+  text: string;
+}
+
+const Checkbox = ({ text }: CheckboxProps) => (
   <Container
     htmlFor="checkbox"
     id="label"
     className="label text-small"
-    onClick={toggleCheckbox}
+    onClick={changeState}
   >
-    <span
+    <Icon
+      icon="check_box_outline_blank"
       role="checkbox"
       aria-checked="false"
       aria-labelledby="label"
       tabIndex={0}
       id="checkbox"
-      className="checkbox"
-    >
-      <Icon icon="check_box_outline_blank" />
-    </span>
-    <span
-      role="checkbox"
-      aria-checked="false"
-      aria-labelledby="label"
-      tabIndex={0}
-      id="checkbox"
-      className="checkbox hidden"
-    >
-      <Icon icon="check_box" outlined={false} />
-    </span>
-    Lembrar-me
+    />
+    {text}
   </Container>
 );
-
 export default Checkbox;
