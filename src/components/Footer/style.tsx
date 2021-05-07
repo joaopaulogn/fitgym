@@ -13,12 +13,12 @@ const Container = styled.footer`
   }
 
   .text,
-  .link {
-    color: var(--secondary-color);
+  .link,
+  .divider {
+    color: inherit;
   }
 
   .divider {
-    color: var(--secondary-color);
     margin: 0 var(--margin-small);
   }
 `;

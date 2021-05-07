@@ -51,7 +51,7 @@ const Container = styled.section`
     align-items: center;
 
     background-color: var(--white-color);
-    border-radius: 0.8rem;
+    border-radius: var(--border-radius);
   }
 
   .redirect {

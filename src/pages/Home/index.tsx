@@ -21,7 +21,7 @@ const Home = () => (
         <img src={Banner} alt="Banner" />
       </div>
 
-      <Footer />
+      <Footer color="var(--secondary-color)" justify="flex-start" />
     </div>
 
     <div className="sub-content">

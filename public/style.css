@@ -16,25 +16,41 @@ body {
     box-sizing: border-box;
 }
 
-input,
+
 button {
     font-family: inherit;
     outline: none;
     border: none;
 }
 
+textarea {
+    font-family: inherit;
+}
+
 a {
     text-decoration: none;
+    outline: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Variables */
 :root {
     /* Colors */
     --primary-color: #7f39fb;
+    --primary-color-light: #F8F5FF;
     --secondary-color: #ebe9eb;
     --text-color: #505668;
     --text-color-alpha: rgba(80, 86, 104, 0.5);
     --white-color: #fff;
+    --white-color-alpha: rgba(255, 255, 255, .5);
     --error-color: #e84545;
     --error-color-alpha: rgba(232, 69, 69, 0.8);
 
@@ -49,6 +65,9 @@ a {
     --padding-large: 2.4rem;
     --padding-default: 1.2rem;
     --padding-small: 0.8rem;
+
+    /* Border-Radius */
+    --border-radius: 0.8rem;
 }
 
 /* Utility classes */
@@ -60,4 +79,9 @@ a {
 .text-small {
     font-size: 1.2rem;
     line-height: 1.4rem;
+}
+
+.title {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
 }

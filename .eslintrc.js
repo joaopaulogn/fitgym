@@ -24,6 +24,8 @@ module.exports = {
   },
   plugins: ['react', 'import', 'jsx-a11y', 'prettier'],
   rules: {
+    'no-param-reassign': 0,
+    'no-unused-expressions': 0,
     'import/no-cycle': 0,
     'no-plusplus': 0,
     'no-console': 0,

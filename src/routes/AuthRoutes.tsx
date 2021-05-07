@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import SignIn from '../components/Auth/SignIn';
-import SignUp from '../components/Auth/SignUp';
-import ForgotPassword from '../components/Auth/ForgotPassword';
-import ResetPassword from '../components/Auth/ResetPassword';
+import SignIn from '../components/AuthScreen/SignIn';
+import SignUp from '../components/AuthScreen/SignUp';
+import ForgotPassword from '../components/AuthScreen/ForgotPassword';
+import ResetPassword from '../components/AuthScreen/ResetPassword';
 
 const AuthRoutes = () => (
   <Router>

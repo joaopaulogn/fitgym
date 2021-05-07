@@ -1,15 +1,20 @@
 import React from 'react';
 import Container from './style';
 
-const Footer = () => (
-  <Container>
-    <p className="text-small">
-      <span className="text">Copyright &copy; 2021</span>
+interface FooterProps {
+  color?: string;
+  justify?: 'flex-start' | 'flex-end';
+}
+
+const Footer = ({ color, justify }: FooterProps) => (
+  <Container style={{ justifyContent: justify }}>
+    <p style={{ color }} className="text-small">
+      <span className="text">Copyright &copy; {new Date().getFullYear()}</span>
       <span className="divider">•</span>
       <span className="text">Todos os direitos reservados</span>
     </p>
 
-    <p className="text-small">
+    <p style={{ color }} className="text-small">
       <a href="/" className="link">
         Termos
       </a>
@@ -20,5 +25,10 @@ const Footer = () => (
     </p>
   </Container>
 );
+
+Footer.defaultProps = {
+  color: 'var(--text-color)',
+  justify: 'flex-end',
+};
 
 export default Footer;
