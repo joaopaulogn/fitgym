@@ -21,7 +21,17 @@ const Home = () => (
         <img src={Banner} alt="Banner" />
       </div>
 
-      <Footer color="var(--secondary-color)" justify="flex-start" />
+      <Footer color="var(--secondary-color)" justify="flex-start">
+        <p className="text-small">
+          <a href="/" className="link">
+            Termos
+          </a>
+          <span className="divider">|</span>
+          <a href="/" className="link">
+            Privacidade
+          </a>
+        </p>
+      </Footer>
     </div>
 
     <div className="sub-content">

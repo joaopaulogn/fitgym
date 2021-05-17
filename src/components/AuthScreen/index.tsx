@@ -27,7 +27,7 @@ const AuthScreen = ({
 );
 
 AuthScreen.defaultProps = {
-  bottomContent: <></>,
+  bottomContent: React.Fragment,
 };
 
 export default AuthScreen;

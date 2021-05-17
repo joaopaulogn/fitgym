@@ -1,8 +1,8 @@
 import React from 'react';
 import AuthScreen from '..';
-import CompanyInput from '../../Field/Company';
-import EmailInput from '../../Field/Email';
-import PasswordInput from '../../Field/Password';
+import CompanyInput from '../../Field/Auth/Company';
+import EmailInput from '../../Field/Auth/Email';
+import PasswordInput from '../../Field/Auth/Password';
 import Checkbox from '../../Checkbox';
 import Button from '../../Button';
 import HelperText from '../../HelperText';
@@ -36,7 +36,7 @@ const SignUp = () => (
         <div className="form__container">
           <Checkbox text="Criando uma conta, você concorda com os Termos de Serviço e Condições, e Privacidade e Política." />
         </div>
-        <Button text="Cadastrar" />
+        <Button text="Cadastrar" disabled />
       </>
     }
     onSubmit={validateSignUp}

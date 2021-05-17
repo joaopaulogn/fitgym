@@ -1,6 +1,5 @@
 import React from 'react';
 import Field from '.';
-import Icon from '../Icon';
 
 const SearchBar = () => (
   <Field
@@ -9,9 +8,8 @@ const SearchBar = () => (
     id="searchBar"
     title="Digite aqui o nome de um aluno"
     placeholder="Pesquisar"
-  >
-    <Icon icon="search" />
-  </Field>
+    icon="search"
+  />
 );
 
 export default SearchBar;

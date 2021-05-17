@@ -1,7 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
-import Field from '.';
-import Icon from '../Icon';
-import ErrorAlert from '../ErrorAlert';
+import AuthField from '.';
+import ErrorAlert from '../../ErrorAlert';
 
 interface EmailProps extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
@@ -9,19 +8,17 @@ interface EmailProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const EmailInput = ({ title, errorMessage }: EmailProps) => (
-  <Field
+  <AuthField
     type="email"
     name="email"
     id="email"
     minLength={11}
     title={title}
     placeholder="E-mail"
+    icon="alternate_email"
   >
-    <>
-      <Icon icon="alternate_email" />
-      <ErrorAlert text={errorMessage} />
-    </>
-  </Field>
+    <ErrorAlert text={errorMessage} />
+  </AuthField>
 );
 
 // EmailInput.defaultProps = {

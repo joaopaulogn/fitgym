@@ -13,20 +13,26 @@ export function isValidEmail(): boolean {
 }
 
 // Validation of password field
-export function isValidPassword(): boolean {
+export function isValidPassword(input?: HTMLInputElement): boolean {
   const password = document.getElementById('password') as HTMLInputElement;
+  const newPassword = document.getElementById(
+    'newPassword',
+  ) as HTMLInputElement;
 
-  return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-    password.value,
-  );
+  const ruleValidation = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+  return input
+    ? ruleValidation.test(newPassword.value) &&
+        newPassword.value === password.value
+    : ruleValidation.test(password.value);
 }
 
 // Validation of confirm password field
-export function isValidConfirmPassword(): boolean {
-  const password = document.getElementById('password') as HTMLInputElement;
-  const confirmPassword = document.getElementById(
-    'confirmPassword',
-  ) as HTMLInputElement;
+// TODO: refazer a validação de confirmar senha, pois deve ser idêntica à senha digita anteriormente, seja nova senha (para redefinição) ou senha para cadastro.
+// export function isValidConfirmPassword(input: HTMLInputElement): boolean {
+//   const passwords = document.querySelectorAll('input[type="password"]');
 
-  return isValidPassword() && confirmPassword.value === password.value;
-}
+//   passwords.forEach(password => {
+//     password.id === 'confirmPassword' ?
+//   })
+// }

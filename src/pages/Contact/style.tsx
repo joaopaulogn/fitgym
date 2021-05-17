@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-const Container = styled.form`
-  width: 40rem;
-
+const Container = styled.main`
   .group {
+    width: 40rem;
     font-size: 1.4rem;
     line-height: 2rem;
     color: var(--text-color);

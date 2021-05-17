@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.form`
+  width: 34rem;
   max-width: 34rem;
   margin-bottom: var(--margin-large);
 

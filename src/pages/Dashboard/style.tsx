@@ -1,95 +1,69 @@
 import styled from 'styled-components';
 
-const Container = styled.section`
-  height: 100vh;
+const Container = styled.main`
   display: flex;
-  padding: var(--margin-large);
-  background-color: var(--primary-color-light);
+  flex-direction: column;
 
-  .profile-page {
-    min-width: 106rem;
-    width: 100%;
-    padding-left: var(--padding-large);
+  .search-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--margin-large);
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: var(--margin-largest);
-    }
-
-    .heading {
-      font-weight: 500;
-      margin-bottom: var(--margin-smallest);
-    }
-
-    .container {
-      padding: 2.4rem;
-      background-color: var(--white-color);
+    input {
+      width: 80rem;
       border-radius: var(--border-radius);
-    }
+      border-bottom: none;
 
-    .search-box {
-      display: flex;
-      align-items: center;
-      margin-bottom: var(--margin-large);
-
-      input {
-        width: 80rem;
-        border-radius: var(--border-radius);
-        border-bottom: none;
-
-        /* &::-webkit-search-cancel-button,
+      // TODO: fazer um botão personalizado para resetar o termo de busca
+      /* &::-webkit-search-cancel-button,
         &::-webkit-search-decoration   {
           display: none;
         } */
-      }
-
-      button {
-        width: 100%;
-        margin-left: var(--margin-large);
-      }
     }
 
-    .students {
-      display: flex;
-      flex-direction: column;
+    button {
+      margin-left: var(--margin-large);
+    }
+  }
 
-      .panel {
-        max-height: 55.5rem;
-        padding-top: 0;
-        overflow-y: scroll;
-      }
+  .students {
+    max-height: 50.3rem;
+    padding: 2.4rem;
+    padding-top: 0;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    overflow-y: scroll;
+  }
 
-      .table {
-        width: 100%;
-      }
+  table {
+    width: 100%;
+  }
 
-      .header {
-        padding: var(--padding-default) 0;
-        position: sticky;
-        top: 0;
-        z-index: 2;
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
 
-        background-color: var(--white-color);
-        border-bottom: 0.1rem solid var(--primary-color-light);
-        margin-bottom: var(--margin-default);
+    padding: var(--padding-large) 0 var(--padding-default) 0;
+    margin-bottom: var(--margin-default);
+    background-color: var(--white-color);
+    border-bottom: 0.1rem solid var(--primary-color-light);
 
-        th {
-          width: 100%;
-          font-weight: 500;
-          text-align: left;
-          color: var(--text-color);
-        }
+    th {
+      width: 100%;
+      font-weight: 500;
+      text-align: left;
+      color: var(--primary-color);
+    }
 
-        th:nth-child(3),
-        th:nth-child(4) {
-          width: 60%;
-        }
+    th:nth-child(3),
+    th:nth-child(4) {
+      width: 60%;
+    }
 
-        th:last-child {
-          text-align: center;
-        }
-      }
+    th:last-child {
+      text-align: center;
     }
   }
 `;

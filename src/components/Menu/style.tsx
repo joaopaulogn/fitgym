@@ -17,6 +17,11 @@ const Container = styled.aside`
     align-items: center;
     margin-bottom: var(--margin-largest);
 
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    color: var(--white-color);
+    font-weight: 500;
+
     .icon-box {
       width: 3.6rem;
       height: 3.6rem;
@@ -35,13 +40,6 @@ const Container = styled.aside`
         transform: translate(-50%, -50%);
         z-index: 2;
       }
-    }
-
-    & .title {
-      font-size: 2.4rem;
-      line-height: 2.8rem;
-      color: var(--white-color);
-      font-weight: 500;
     }
   }
 

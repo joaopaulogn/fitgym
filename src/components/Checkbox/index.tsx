@@ -1,27 +1,21 @@
 import React from 'react';
 import Container from './style';
-import Icon from '../Icon';
+import Input from '../Input';
 
 interface CheckboxProps {
   text: string;
 }
 
 const Checkbox = ({ text }: CheckboxProps) => {
-  function changeState({ currentTarget }: React.MouseEvent) {
-    const checkbox = currentTarget.firstElementChild as HTMLSpanElement;
+  function saveState() {
+    const emailField = document.getElementById('email') as HTMLInputElement;
+    const passwordField = document.getElementById(
+      'password',
+    ) as HTMLInputElement;
 
-    let state = 'check_box';
-    let isChecked = 'true';
-
-    if (checkbox.getAttribute('aria-checked') === 'true') {
-      state = 'check_box_outline_blank';
-      isChecked = 'false';
-    }
-
-    checkbox.innerHTML = state;
-    checkbox.setAttribute('aria-checked', isChecked);
-    checkbox.classList.remove('material-icons-outlined');
-    checkbox.classList.add('material-icons');
+    emailField.setAttribute('autocomplete', 'on');
+    passwordField.setAttribute('autocomplete', 'on');
+    localStorage.setItem('autoComplete', 'on');
   }
 
   return (
@@ -29,17 +23,13 @@ const Checkbox = ({ text }: CheckboxProps) => {
       htmlFor="checkbox"
       id="label"
       className="label text-small"
-      onClick={changeState}
+      onClick={saveState}
     >
-      <Icon
-        icon="check_box_outline_blank"
-        role="checkbox"
-        aria-checked={false}
-        aria-labelledby="label"
-        tabIndex={0}
-        id="checkbox"
-      />
-      {text}
+      <Input type="checkbox" name="checkbox" id="checkbox" />
+      <div className="checkbox">
+        <span className="material-icons-outlined" />
+      </div>
+      <span className="text">{text}</span>
     </Container>
   );
 };

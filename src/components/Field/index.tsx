@@ -1,13 +1,14 @@
 import React from 'react';
 import Container from './style';
 import Input, { InputProps } from '../Input';
-import { removeInvalidState } from '../../events/setInvalidState';
-import setValidityState from './validityState';
+import Icon from '../Icon';
 
-interface FieldProps extends InputProps {
+export interface FieldProps extends InputProps {
   title: string;
   placeholder: string;
-  children: React.ReactElement;
+  autoComplete?: string;
+  icon: string;
+  button?: React.ReactElement;
 }
 
 const Field = ({
@@ -16,21 +17,29 @@ const Field = ({
   id,
   title,
   placeholder,
-  children,
+  icon,
+  button,
+  autoComplete,
+  ...props
 }: FieldProps) => (
-  <Container className="field">
+  <Container>
     <Input
       type={type}
       name={name}
       id={id}
       title={title}
+      autoComplete={autoComplete}
       placeholder={placeholder}
-      onClick={({ currentTarget }) => removeInvalidState(currentTarget)}
-      onFocus={({ currentTarget }) => removeInvalidState(currentTarget)}
-      onBlur={setValidityState}
+      {...props}
     />
-    {children}
+    {button}
+    <Icon icon={icon} />
   </Container>
 );
+
+Field.defaultProps = {
+  button: React.Fragment,
+  autoComplete: 'off',
+};
 
 export default Field;

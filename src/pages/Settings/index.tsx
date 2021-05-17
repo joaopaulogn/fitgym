@@ -10,24 +10,25 @@ const Settings = () => {
   const { url } = useRouteMatch();
 
   return (
-    <PageScreen
-      heading="Perfil"
-      subheading="Atualize ou visualize seus dados"
-      bannerSrc={Banner}
-      bannerAlt="Profile settings banner"
-    >
-      <Container>
-        <ul className="menu">
-          <Option path={`${url}`} text="Perfil" />
-          <Option path={`${url}/edit`} text="Editar perfil" />
-          <Option path={`${url}/password`} text="Redefinir senha" />
-        </ul>
+    <PageScreen heading="Perfil" subheading="Atualize ou visualize seus dados">
+      <Container className="container">
+        <section className="content">
+          <ul className="menu">
+            <Option path={`${url}`} text="Perfil" />
+            <Option path={`${url}/edit`} text="Editar perfil" />
+            <Option path={`${url}/password`} text="Redefinir senha" />
+          </ul>
 
-        <SettingsRoutes
-          profile={`${url}`}
-          edit={`${url}/edit`}
-          password={`${url}/password`}
-        />
+          <SettingsRoutes
+            profile={`${url}`}
+            edit={`${url}/edit`}
+            password={`${url}/password`}
+          />
+        </section>
+
+        <div className="banner">
+          <img src={Banner} alt="Profile settings banner" />
+        </div>
       </Container>
     </PageScreen>
   );

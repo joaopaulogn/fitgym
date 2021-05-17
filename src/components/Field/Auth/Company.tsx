@@ -1,22 +1,19 @@
 import React from 'react';
-import Field from '.';
-import Icon from '../Icon';
-import ErrorAlert from '../ErrorAlert';
+import AuthField from '.';
+import ErrorAlert from '../../ErrorAlert';
 
 const CompanyInput = () => (
-  <Field
+  <AuthField
     type="text"
     name="company"
     id="company"
     minLength={1}
     title="Digite o nome da academia"
     placeholder="Nome da academia"
+    icon="business"
   >
-    <>
-      <Icon icon="business" />
-      <ErrorAlert text="Por favor, preencha com o nome de sua academia." />
-    </>
-  </Field>
+    <ErrorAlert text="Por favor, preencha com o nome de sua academia." />
+  </AuthField>
 );
 
 export default CompanyInput;

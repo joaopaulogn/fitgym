@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Container from './style';
 import Icon from '../Icon';
 import Option from '../Options/Dashboard';
@@ -6,12 +7,12 @@ import Option from '../Options/Dashboard';
 const Menu = () => (
   <Container>
     <header>
-      <div className="logo">
+      <Link to="/" className="logo title">
         <div className="icon-box">
           <Icon icon="fitness_center" />
         </div>
-        <p className="title">FITGYM</p>
-      </div>
+        FITGYM
+      </Link>
 
       <div className="profile">
         <div className="info">
@@ -22,7 +23,8 @@ const Menu = () => (
 
       <nav>
         <ul>
-          <Option path="/" icon="analytics" text="Dashboard" />
+          <Option path="/" icon="home" text="Início" />
+          <Option path="/students" icon="people" text="Alunos" />
           <Option path="/settings" icon="edit" text="Perfil" />
           <Option path="/contact" icon="contact_support" text="Contate-nos" />
         </ul>

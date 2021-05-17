@@ -8,32 +8,30 @@ interface PageScreenProps {
   heading: React.ReactElement | React.ReactText;
   subheading: string;
   children: React.ReactElement;
-  bannerSrc: string;
-  bannerAlt: string;
+  banner?: React.ReactElement;
 }
 
 const PageScreen = ({
   heading,
   subheading,
   children,
-  bannerSrc,
-  bannerAlt,
+  banner,
 }: PageScreenProps) => (
   <Container>
     <Menu />
 
     <section>
       <Header heading={heading} subheading={subheading} />
-      <main>
-        <section>{children}</section>
-        <div className="banner">
-          <img src={bannerSrc} alt={bannerAlt} />
-        </div>
-      </main>
+      {children}
+      {banner}
 
       <Footer />
     </section>
   </Container>
 );
+
+PageScreen.defaultProps = {
+  banner: React.Fragment,
+};
 
 export default PageScreen;

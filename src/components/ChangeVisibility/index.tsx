@@ -4,8 +4,7 @@ import Icon from '../Icon';
 const ChangeVisibility = () => {
   function changeVisibility({ currentTarget }: React.MouseEvent) {
     const button = currentTarget as HTMLSpanElement;
-    const passwordField = currentTarget.previousElementSibling
-      ?.previousElementSibling as HTMLInputElement;
+    const passwordField = currentTarget.previousElementSibling as HTMLInputElement;
 
     if (passwordField.type === 'password') {
       button.innerHTML = 'visibility';

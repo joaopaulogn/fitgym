@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthScreen from '..';
-import PasswordInput from '../../Field/Password';
+import PasswordInput from '../../Field/Auth/Password';
 import Button from '../../Button';
 import InfoText from '../../InfoText';
 import validateResetPassword from './validation';
@@ -14,15 +14,8 @@ const ResetPassword = () => (
         <PasswordInput
           name="password"
           id="password"
-          title="Digite sua senha atual"
-          placeholder="Senha atual"
-          errorMessage="Senha não cadastrada. Por favor, tente novamente."
-        />
-        <PasswordInput
-          id="newPassword"
-          name="newPassword"
-          placeholder="Nova senha"
           title="Digite sua nova senha"
+          placeholder="Senha"
           errorMessage="A senha deve ter entre 8 e 32 caracteres, contendo pelo menos 1 letra minúscula, 1 letra maiúscula, 1 número e 1 caractere especial."
         />
         <PasswordInput
@@ -33,7 +26,7 @@ const ResetPassword = () => (
           errorMessage="As senhas devem seguir o padrão citado acima e serem idênticas."
         />
 
-        <Button text="Redefinir" />
+        <Button text="Redefinir" disabled />
       </>
     }
     onSubmit={validateResetPassword}

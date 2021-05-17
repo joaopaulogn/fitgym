@@ -10,7 +10,7 @@ const Container = styled.div`
     min-width: 100%;
     border-bottom: 0.1rem solid var(--text-color-alpha);
     padding: var(--padding-default) 0 var(--padding-default)
-      calc(2.4rem + var(--margin-small));
+      calc(var(--margin-large) + var(--margin-small));
     color: var(--text-color-alpha);
 
     &::placeholder {
@@ -26,8 +26,8 @@ const Container = styled.div`
       border-bottom-color: var(--error-color-alpha);
 
       &::placeholder,
-      & + .icon,
-      & + .icon + span + .button {
+      & ~ .button,
+      & ~ .icon {
         color: var(--error-color-alpha);
       }
     }
@@ -36,8 +36,8 @@ const Container = styled.div`
     &.valid {
       border-bottom-color: var(--primary-color);
 
-      & + .icon,
-      & + .icon + span + .button {
+      & ~ .button,
+      & ~ .icon {
         color: var(--primary-color);
       }
     }
@@ -47,8 +47,8 @@ const Container = styled.div`
     &.invalid {
       transition: all 0.4s;
 
-      & + .icon,
-      & + .icon + .button {
+      & ~ .button,
+      & ~ .icon {
         transition: all 0.4s;
       }
     }

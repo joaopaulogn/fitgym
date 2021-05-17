@@ -11,6 +11,12 @@ const Container = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  &:disabled {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: default;
+  }
 `;
 
 export default Container;

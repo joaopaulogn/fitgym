@@ -16,12 +16,6 @@ const Container = styled.div`
     max-width: 34rem;
     margin: var(--margin-default) 0 var(--margin-largest) 0;
   }
-
-  button:disabled {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    cursor: default;
-  }
 `;
 
 export default Container;

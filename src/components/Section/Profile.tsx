@@ -11,7 +11,7 @@ const Profile = () => (
         <span>Clique no botão abaixo para ir para a página de edição.</span>
       </>
     }
-    button={{ text: 'Editar', width: '17rem' }}
+    button={{ text: 'Editar', width: '17rem', disabled: false }}
   >
     <>
       <Data roleText="Nome">

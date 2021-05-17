@@ -1,8 +1,7 @@
 import React, { InputHTMLAttributes } from 'react';
-import ChangeVisibility from '../ChangeVisibility';
-import Field from '.';
-import Icon from '../Icon';
-import ErrorAlert from '../ErrorAlert';
+import AuthField from '.';
+import ChangeVisibility from '../../ChangeVisibility';
+import ErrorAlert from '../../ErrorAlert';
 
 interface PasswordProps extends InputHTMLAttributes<HTMLInputElement> {
   name: 'password' | 'newPassword' | 'confirmPassword';
@@ -19,7 +18,7 @@ const PasswordInput = ({
   placeholder,
   errorMessage,
 }: PasswordProps) => (
-  <Field
+  <AuthField
     type="password"
     name={name}
     id={id}
@@ -27,13 +26,11 @@ const PasswordInput = ({
     maxLength={32}
     title={title}
     placeholder={placeholder}
+    icon="lock"
+    button={<ChangeVisibility />}
   >
-    <>
-      <Icon icon="lock" />
-      <ErrorAlert text={errorMessage} />
-      <ChangeVisibility />
-    </>
-  </Field>
+    <ErrorAlert text={errorMessage} />
+  </AuthField>
 );
 
 // PasswordInput.defaultProps = {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthScreen from '..';
-import EmailInput from '../../Field/Email';
-import PasswordInput from '../../Field/Password';
+import EmailInput from '../../Field/Auth/Email';
+import PasswordInput from '../../Field/Auth/Password';
 import Checkbox from '../../Checkbox';
 import Button from '../../Button';
 import HelperText from '../../HelperText';
@@ -29,6 +29,7 @@ const SignIn = () => (
           placeholder="Senha"
           title="Digite sua senha cadastrada"
           errorMessage="Senha não cadastrada. Por favor, tente novamente"
+          // onChange={handleChange}
         />
         <div className="container">
           <Checkbox text="Lembrar-me" />
@@ -37,7 +38,7 @@ const SignIn = () => (
           </Link>
         </div>
 
-        <Button text="Entrar" />
+        <Button text="Entrar" disabled />
       </>
     }
     onSubmit={validateSignIn}

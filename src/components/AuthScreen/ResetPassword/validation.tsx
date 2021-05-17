@@ -1,5 +1,5 @@
 import React from 'react';
-import { isValidPassword, isValidConfirmPassword } from '../../Field/validator';
+import { isValidPassword, isValidConfirmPassword } from '../../Field/valid';
 
 function validateResetPassword(event: React.FormEvent) {
   event.preventDefault();
