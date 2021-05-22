@@ -9,6 +9,7 @@ const SearchBar = () => (
     title="Digite aqui o nome de um aluno"
     placeholder="Pesquisar"
     icon="search"
+    onFocus={(event) => event.currentTarget.classList.add('active')}
   />
 );
 

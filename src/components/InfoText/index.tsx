@@ -14,7 +14,7 @@ const InfoText = ({ text, children }: InfoTextProps) => (
 );
 
 InfoText.defaultProps = {
-  children: <></>,
+  children: React.Fragment,
 };
 
 export default InfoText;

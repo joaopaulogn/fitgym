@@ -3,8 +3,8 @@ import AuthField from '.';
 import ErrorAlert from '../../ErrorAlert';
 
 interface EmailProps extends InputHTMLAttributes<HTMLInputElement> {
-  title: string;
-  errorMessage: string;
+  title?: string;
+  errorMessage?: string;
 }
 
 const EmailInput = ({ title, errorMessage }: EmailProps) => (
@@ -21,9 +21,9 @@ const EmailInput = ({ title, errorMessage }: EmailProps) => (
   </AuthField>
 );
 
-// EmailInput.defaultProps = {
-//   title: 'Digite seu e-mail cadastrado',
-//   errorMessage: 'E-mail não cadastrado. Por favor, tente novamente.',
-// };
+EmailInput.defaultProps = {
+  title: 'Digite seu e-mail cadastrado',
+  errorMessage: 'E-mail não cadastrado. Por favor, tente novamente.',
+};
 
 export default EmailInput;

@@ -1,28 +1,33 @@
 import React from 'react';
-import { useRouteMatch } from 'react-router-dom';
-import PageScreen from '../../components/PageScreen';
+import DashboardScreen from '../../components/DashboardScreen';
 import Container from './style';
-import Banner from '../../assets/profile.svg';
 import Option from '../../components/Options/Settings';
 import SettingsRoutes from '../../routes/SettingsRoutes';
+import Banner from '../../assets/profile.svg';
 
 const Settings = () => {
-  const { url } = useRouteMatch();
-
+  const [profilePath, editPath, resetPasswordPath] = [
+    '/perfil',
+    '/perfil/editar-perfil',
+    '/perfil/redefinir-senha',
+  ];
   return (
-    <PageScreen heading="Perfil" subheading="Atualize ou visualize seus dados">
+    <DashboardScreen
+      heading="Perfil"
+      subheading="Atualize ou visualize seus dados"
+    >
       <Container className="container">
         <section className="content">
           <ul className="menu">
-            <Option path={`${url}`} text="Perfil" />
-            <Option path={`${url}/edit`} text="Editar perfil" />
-            <Option path={`${url}/password`} text="Redefinir senha" />
+            <Option exact path={profilePath} text="Perfil" />
+            <Option path={editPath} text="Editar perfil" />
+            <Option path={resetPasswordPath} text="Redefinir senha" />
           </ul>
 
           <SettingsRoutes
-            profile={`${url}`}
-            edit={`${url}/edit`}
-            password={`${url}/password`}
+            profile={profilePath}
+            edit={editPath}
+            resetPassword={resetPasswordPath}
           />
         </section>
 
@@ -30,7 +35,7 @@ const Settings = () => {
           <img src={Banner} alt="Profile settings banner" />
         </div>
       </Container>
-    </PageScreen>
+    </DashboardScreen>
   );
 };
 

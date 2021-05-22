@@ -1,9 +1,9 @@
 import React from 'react';
+import DashboardScreen from '../../components/DashboardScreen';
 import Container from './style';
 import Banner from '../../assets/contact.svg';
-import Button from '../../components/Button';
-import PageScreen from '../../components/PageScreen';
 import Radio from '../../components/Radio';
+import Button from '../../components/Button';
 
 const Contact = () => {
   function activeOptions({ currentTarget }: React.MouseEvent) {
@@ -19,7 +19,10 @@ const Contact = () => {
   }
 
   return (
-    <PageScreen heading="Contate-nos" subheading="Entre em contato com a gente">
+    <DashboardScreen
+      heading="Contate-nos"
+      subheading="Entre em contato com a gente"
+    >
       <Container className="container">
         <form action="." method="POST" noValidate className="content">
           <div className="group">
@@ -64,7 +67,7 @@ const Contact = () => {
           <img src={Banner} alt="Contact-us banner" />
         </div>
       </Container>
-    </PageScreen>
+    </DashboardScreen>
   );
 };
 

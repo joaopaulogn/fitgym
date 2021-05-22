@@ -56,6 +56,11 @@ const Container = styled.div`
     &[type='search'] {
       padding-left: 4.8rem;
       padding-right: var(--margin-default);
+      border: 0.1rem solid transparent;
+
+      &:focus {
+        border-color: var(--primary-color);
+      }
 
       & + .icon {
         left: 1.2rem;

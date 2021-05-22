@@ -4,8 +4,8 @@ import Input, { InputProps } from '../Input';
 import Icon from '../Icon';
 
 export interface FieldProps extends InputProps {
-  title: string;
-  placeholder: string;
+  title: string | undefined;
+  placeholder: string | undefined;
   autoComplete?: string;
   icon: string;
   button?: React.ReactElement;

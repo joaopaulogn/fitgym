@@ -1,7 +1,11 @@
 import React from 'react';
-import Panel from '../../pages/Panel';
-import Home from '../../pages/Home';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from '../../routes/Routes';
 
-const App = () => <Home />;
+const App = () => (
+  // <Router>
+  <Routes />
+  // </Router>
+);
 
 export default App;

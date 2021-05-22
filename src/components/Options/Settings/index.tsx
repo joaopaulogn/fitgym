@@ -1,25 +1,25 @@
 import React, { LiHTMLAttributes } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Container from './style';
 import Icon from '../../Icon';
-import setActiveState from '../../../events/setActiveState';
 
 interface OptionProps extends LiHTMLAttributes<HTMLLIElement> {
   path: string;
+  exact?: boolean;
   text: string;
 }
 
-const Option = ({ path, text, ...props }: OptionProps) => (
-  <Container {...props}>
-    <Link
-      to={path}
-      data-option="settings"
-      onClick={(event) => setActiveState(event, '[data-option="settings"]')}
-    >
+const Option = ({ path, exact, text }: OptionProps) => (
+  <Container>
+    <NavLink exact={exact} to={path} data-option="settings">
       <Icon icon="person" />
       {text}
-    </Link>
+    </NavLink>
   </Container>
 );
+
+Option.defaultProps = {
+  exact: false,
+};
 
 export default Option;

@@ -7,10 +7,14 @@ import ResetPassword from '../components/Section/ResetPassword';
 interface SettingsRouteProps {
   profile: string;
   edit: string;
-  password: string;
+  resetPassword: string;
 }
 
-const SettingsRoutes = ({ profile, edit, password }: SettingsRouteProps) => (
+const SettingsRoutes = ({
+  profile,
+  edit,
+  resetPassword,
+}: SettingsRouteProps) => (
   <Switch>
     <Route exact path={profile}>
       <Profile />
@@ -18,7 +22,7 @@ const SettingsRoutes = ({ profile, edit, password }: SettingsRouteProps) => (
     <Route path={edit}>
       <Edit />
     </Route>
-    <Route path={password}>
+    <Route exact path={resetPassword}>
       <ResetPassword />
     </Route>
   </Switch>

@@ -1,25 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthScreen from '..';
-import EmailInput from '../../Field/Auth/Email';
-import Button from '../../Button';
-import InfoText from '../../InfoText';
-import validateForgotPassword from './validation';
+import AuthScreen from '../../components/AuthScreen';
+import EmailInput from '../../components/Field/Auth/Email';
+import InfoText from '../../components/InfoText';
 
 const ForgotPassword = () => (
   <AuthScreen
     heading="Esqueceu sua senha?"
     subheading="Digite seu e-mail de cadastro para redefini-la"
-    form={
+    formFields={
       <>
-        <EmailInput
-          title="Digite seu e-mail cadastrado"
-          errorMessage="E-mail não cadastrado. Por favor, tente novamente."
-        />
-        <Button text="Redefinir senha" disabled />
+        <EmailInput />
       </>
     }
-    onSubmit={validateForgotPassword}
+    buttonText="Redefinir senha"
+    // onSubmit={validateForgotPassword}
     bottomContent={
       <InfoText
         text="Se o e-mail digitado for o mesmo do cadastro, você receberá as
@@ -32,5 +27,4 @@ const ForgotPassword = () => (
     }
   />
 );
-
 export default ForgotPassword;

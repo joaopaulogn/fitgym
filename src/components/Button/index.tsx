@@ -2,10 +2,10 @@ import React from 'react';
 import Container from './style';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
   type?: 'submit' | 'reset' | 'button';
-  disabled?: false | true;
+  text: string;
   width?: '100%' | '34rem' | '17rem';
+  disabled?: boolean;
 }
 
 const Button = ({ type, text, width, disabled, ...props }: ButtonProps) => (

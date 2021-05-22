@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from '../Input';
 import Container from './style';
+import Input from '../Input';
 
 interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;

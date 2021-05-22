@@ -2,9 +2,9 @@ import React from 'react';
 import Container from './style';
 
 interface FooterProps {
+  children?: React.ReactElement;
   color?: string;
   justify?: 'flex-start' | 'flex-end';
-  children?: React.ReactElement;
 }
 
 const Footer = ({ color, justify, children }: FooterProps) => (
@@ -20,9 +20,9 @@ const Footer = ({ color, justify, children }: FooterProps) => (
 );
 
 Footer.defaultProps = {
+  children: React.Fragment,
   color: 'var(--text-color)',
   justify: 'flex-end',
-  children: React.Fragment,
 };
 
 export default Footer;
