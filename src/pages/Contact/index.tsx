@@ -54,8 +54,8 @@ const Contact = () => {
 
           <div className="group">
             <p>
-              Deixe abaixo sua mensagem. Por gentileza, pedimos que detalhe o
-              máximo possível.
+              Deixe abaixo sua mensagem. Por gentileza, <br /> pedimos que
+              detalhe o máximo possível.
             </p>
             <textarea name="messageContact" id="messageContact" />
           </div>

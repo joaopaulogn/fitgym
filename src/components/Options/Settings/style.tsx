@@ -4,7 +4,7 @@ const Container = styled.li`
   a {
     display: flex;
     align-items: center;
-    padding-bottom: var(--padding-default);
+    padding-bottom: var(--padding-small);
     padding-right: var(--padding-small);
 
     font-size: 1.4rem;

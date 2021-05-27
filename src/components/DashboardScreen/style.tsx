@@ -29,6 +29,7 @@ const Container = styled.section`
       padding: 2.4rem;
       border-radius: var(--border-radius);
       background-color: var(--white-color);
+      border: 0.1rem solid var(--gray-color);
     }
 
     .banner {

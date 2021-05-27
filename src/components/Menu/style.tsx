@@ -27,9 +27,6 @@ const Container = styled.aside`
     border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
 
     .info {
-      p {
-        margin-bottom: var(--margin-smallest);
-      }
       span {
         color: var(--white-color-alpha);
       }

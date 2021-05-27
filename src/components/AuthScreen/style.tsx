@@ -68,7 +68,7 @@ const Container = styled.section`
 
     & > p {
       max-width: 34rem;
-      margin: var(--margin-default) 0 var(--margin-largest) 0;
+      margin: var(--margin-smallest) 0 var(--margin-largest) 0;
     }
   }
 `;

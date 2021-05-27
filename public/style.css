@@ -49,7 +49,7 @@ tr {
     /* Colors */
     --primary-color: #7f39fb;
     --primary-color-light: #F8F5FF;
-    --secondary-color: #ebe9eb;
+    --gray-color: #ebe9eb;
     --text-color: #505668;
     --text-color-alpha: rgba(80, 86, 104, 0.5);
     --white-color: #fff;

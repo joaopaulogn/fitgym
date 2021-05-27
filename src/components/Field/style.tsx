@@ -8,10 +8,10 @@ const Container = styled.div`
 
   input {
     min-width: 100%;
-    border-bottom: 0.1rem solid var(--text-color-alpha);
-    padding: var(--padding-default) 0 var(--padding-default)
-      calc(var(--margin-large) + var(--margin-small));
     color: var(--text-color-alpha);
+    padding: var(--padding-default);
+    padding-left: calc(var(--padding-large) + var(--padding-small));
+    border-bottom: 0.1rem solid var(--text-color-alpha);
 
     &::placeholder {
       color: var(--text-color-alpha);
@@ -54,7 +54,9 @@ const Container = styled.div`
     }
 
     &[type='search'] {
-      padding-left: 4.8rem;
+      padding-left: calc(
+        var(--padding-default) + 2.4rem + var(--padding-small)
+      );
       padding-right: var(--margin-default);
       border: 0.1rem solid transparent;
 
@@ -75,7 +77,7 @@ const Container = styled.div`
   .icon,
   .button {
     position: absolute;
-    top: 0.9rem;
+    top: 0.8rem;
   }
 
   .icon {

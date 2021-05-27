@@ -5,7 +5,7 @@ const Container = styled.span`
   visibility: hidden;
   opacity: 0;
   color: var(--error-color);
-  margin-top: var(--margin-smallest);
+  margin-top: var(--margin-small);
 
   &.visible {
     display: block;

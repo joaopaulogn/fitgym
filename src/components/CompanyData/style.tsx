@@ -3,28 +3,28 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: var(--padding-default) var(--padding-large);
+  padding: var(--padding-default);
 
   background-color: var(--primary-color-light);
   border-radius: var(--border-radius);
-  color: var(--primary-color);
+  color: var(--text-color);
 
   position: relative;
 
   .role {
     display: flex;
     align-items: center;
-    margin-right: 8rem;
+    margin-right: var(--margin-largest);
 
-    span {
+    span:first-child {
       font-weight: 500;
-      margin-right: var(--margin-large);
+      margin-right: var(--margin-default);
     }
   }
 
   input {
     background-color: transparent;
-    color: var(--primary-color);
+    color: inherit;
     border: none;
   }
 

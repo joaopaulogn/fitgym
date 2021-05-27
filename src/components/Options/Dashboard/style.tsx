@@ -4,8 +4,7 @@ const Container = styled.li`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: var(--margin-default);
-  padding-left: var(--padding-default);
+  padding: var(--padding-default);
 
   background-color: transparent;
   border-radius: var(--border-radius);
@@ -28,9 +27,7 @@ const Container = styled.li`
     width: 100%;
     font-size: 1.4rem;
     line-height: 2rem;
-    padding: var(--padding-default);
-    padding-left: 0;
-    margin-left: var(--margin-default);
+    margin-left: var(--margin-small);
   }
 
   a,

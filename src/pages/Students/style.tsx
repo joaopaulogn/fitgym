@@ -12,7 +12,6 @@ const Container = styled.main`
     input {
       width: 80rem;
       border-radius: var(--border-radius);
-      border-bottom: none;
 
       // TODO: fazer um botão personalizado para resetar o termo de busca
       /* &::-webkit-search-cancel-button,
@@ -31,6 +30,7 @@ const Container = styled.main`
     padding: 2.4rem;
     padding-top: 0;
     background-color: var(--white-color);
+    border: 0.1rem solid var(--gray-color);
     border-radius: var(--border-radius);
     overflow-y: scroll;
   }
@@ -45,7 +45,7 @@ const Container = styled.main`
     left: 0;
     z-index: 2;
 
-    padding: var(--padding-large) 0 var(--padding-default) 0;
+    padding: var(--padding-large) 0 var(--padding-small) 0;
     margin-bottom: var(--margin-default);
     background-color: var(--white-color);
     border-bottom: 0.1rem solid var(--primary-color-light);

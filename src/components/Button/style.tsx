@@ -13,8 +13,8 @@ const Container = styled.button`
   }
 
   &:disabled {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
     cursor: default;
   }
 `;

@@ -7,7 +7,7 @@ const Container = styled.td`
   color: var(--text-color);
 
   .icon {
-    margin-right: var(--margin-default);
+    margin-right: var(--margin-small);
     color: inherit;
   }
 `;
