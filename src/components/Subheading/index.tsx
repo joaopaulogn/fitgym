@@ -5,6 +5,8 @@ interface SubheadingProps {
   text: string;
 }
 
-const Subheading = ({ text }: SubheadingProps) => <Container>{text}</Container>;
+const Subheading = ({ text }: SubheadingProps) => (
+  <Container className="subheading">{text}</Container>
+);
 
 export default Subheading;
