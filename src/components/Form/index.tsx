@@ -4,13 +4,13 @@ import Container from './style';
 
 interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   children: React.ReactElement;
-  buttonText: string;
+  button: string;
 }
 
-const Form = ({ children, buttonText, ...props }: FormProps) => (
-  <Container action="." method="POST" autoComplete="off" noValidate {...props}>
+const Form = ({ children, button, ...props }: FormProps) => (
+  <Container action="." method="POST" noValidate {...props}>
     {children}
-    <Button text={buttonText} disabled />
+    <Button text={button} />
   </Container>
 );
 

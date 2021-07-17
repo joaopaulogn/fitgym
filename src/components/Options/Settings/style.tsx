@@ -8,13 +8,13 @@ const Container = styled.li`
     padding-right: var(--padding-small);
 
     font-size: 1.4rem;
+    font-weight: 500;
     line-height: 2rem;
-    color: var(--text-color);
+    color: var(--text-color-alpha);
     border-bottom: 0.2rem solid transparent;
 
     &.active {
       color: var(--primary-color);
-      font-weight: 500;
       border-bottom-color: var(--primary-color);
 
       & > .icon {

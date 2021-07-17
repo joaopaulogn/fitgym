@@ -16,7 +16,7 @@ body {
     box-sizing: border-box;
 }
 
-input {
+input, textarea, select {
     font-family:  inherit;
 }
 
@@ -24,10 +24,6 @@ button {
     font-family: inherit;
     outline: none;
     border: none;
-}
-
-textarea {
-    font-family: inherit;
 }
 
 a {

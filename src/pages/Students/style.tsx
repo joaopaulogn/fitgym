@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.main`
-  display: flex;
+const Container = styled.div`
   flex-direction: column;
 
   .search-box {
@@ -11,7 +10,6 @@ const Container = styled.main`
 
     input {
       width: 80rem;
-      border-radius: var(--border-radius);
 
       // TODO: fazer um botão personalizado para resetar o termo de busca
       /* &::-webkit-search-cancel-button,
@@ -25,45 +23,40 @@ const Container = styled.main`
     }
   }
 
-  .students {
-    max-height: 50.3rem;
-    padding: 2.4rem;
-    padding-top: 0;
-    background-color: var(--white-color);
-    border: 0.1rem solid var(--gray-color);
-    border-radius: var(--border-radius);
+  section {
     overflow-y: scroll;
-  }
 
-  table {
-    width: 100%;
-  }
-
-  .header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 2;
-
-    padding: var(--padding-large) 0 var(--padding-small) 0;
-    margin-bottom: var(--margin-default);
-    background-color: var(--white-color);
-    border-bottom: 0.1rem solid var(--primary-color-light);
-
-    th {
+    table {
       width: 100%;
-      font-weight: 500;
-      text-align: left;
-      color: var(--primary-color);
     }
 
-    th:nth-child(3),
-    th:nth-child(4) {
-      width: 60%;
-    }
+    thead {
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 2;
 
-    th:last-child {
-      text-align: center;
+      & > tr {
+        padding: var(--padding-large) 0 var(--padding-default) 0;
+        background-color: var(--white-color);
+        border-bottom: 0.1rem solid var(--primary-color-light);
+
+        th {
+          width: 100%;
+          font-weight: 500;
+          text-align: left;
+          color: var(--primary-color);
+
+          &:nth-child(3),
+          &:nth-child(4) {
+            width: 60%;
+          }
+
+          &:last-child {
+            text-align: center;
+          }
+        }
+      }
     }
   }
 `;

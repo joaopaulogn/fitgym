@@ -3,18 +3,10 @@ import Container from './style';
 
 interface InfoTextProps {
   text: string;
-  children?: React.ReactElement;
 }
 
-const InfoText = ({ text, children }: InfoTextProps) => (
-  <Container className="bottom-content">
-    <p className="text text-small">{text}</p>
-    {children}
-  </Container>
+const InfoText = ({ text }: InfoTextProps) => (
+  <Container className="info-text text-small">{text}</Container>
 );
-
-InfoText.defaultProps = {
-  children: React.Fragment,
-};
 
 export default InfoText;

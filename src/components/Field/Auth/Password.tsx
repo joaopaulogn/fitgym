@@ -1,45 +1,68 @@
 import React, { InputHTMLAttributes } from 'react';
 import AuthField from '.';
 import ChangeVisibility from '../../ChangeVisibility';
-import ErrorAlert from '../../ErrorAlert';
+import Icon from '../../Icon';
+import setError from './setErrorState';
 
 interface PasswordProps extends InputHTMLAttributes<HTMLInputElement> {
-  name?: 'password' | 'newPassword' | 'confirmPassword';
-  id?: 'password' | 'newPassword' | 'confirmPassword';
-  title?: string;
+  name?: 'password' | 'confirmPassword';
   placeholder?: 'Senha' | 'Confirmar senha';
-  errorMessage?: string;
+  title?: string;
+  instructions?: string | React.ReactElement;
+  errorMessage: string;
 }
 
 const PasswordInput = ({
   name,
-  id,
-  title,
   placeholder,
+  title,
+  instructions,
   errorMessage,
-}: PasswordProps) => (
-  <AuthField
-    type="password"
-    name={name}
-    id={id}
-    minLength={8}
-    maxLength={32}
-    title={title}
-    placeholder={placeholder}
-    icon="lock"
-    button={<ChangeVisibility />}
-  >
-    <ErrorAlert text={errorMessage} />
-  </AuthField>
-);
+}: PasswordProps) => {
+  function handleBlur({ currentTarget }: React.FormEvent) {
+    const $this = currentTarget as HTMLInputElement;
+    const isValid = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+      $this.value,
+    );
+
+    if (isValid) {
+      $this.classList.add('valid');
+    } else {
+      setError($this, errorMessage);
+    }
+  }
+
+  return (
+    <AuthField
+      type="password"
+      name={name}
+      title={title}
+      placeholder={placeholder}
+      onBlur={(event) => handleBlur(event)}
+      instructions={instructions}
+    >
+      <>
+        <Icon icon="lock" />
+        <ChangeVisibility />
+      </>
+    </AuthField>
+  );
+};
 
 PasswordInput.defaultProps = {
   name: 'password',
-  id: 'password',
   title: 'Digite sua senha',
   placeholder: 'Senha',
-  errorMessage:
-    'A senha deve ter entre 8 e 32 caracteres, contendo pelo menos 1 letra minúscula, 1 letra maiúscula, 1 número e 1 caractere especial.',
+  instructions: (
+    <>
+      Sua senha deve seguir o padrão abaixo:
+      <br />
+      - Conter pelo menos 1 letra minúscula, 1 letra maiúscula,
+      <br />
+      1 número e 1 símbolo.
+      <br /> - Ter no mínimo 8 caracteres.
+    </>
+  ),
 };
 
 export default PasswordInput;

@@ -4,10 +4,10 @@ import SignIn from '../pages/Login/SignIn';
 import SignUp from '../pages/Login/SignUp';
 import ForgotPassword from '../pages/Login/ForgotPassword';
 import ResetPassword from '../pages/Login/ResetPassword';
-import Students from '../pages/Students';
-import Settings from '../pages/Settings';
-import Contact from '../pages/Contact';
 import NotFound from '../pages/NotFound';
+import Students from '../pages/Students';
+import Profile from '../pages/Profile';
+import Contact from '../pages/Contact';
 
 const Routes = () => (
   <Router>
@@ -28,10 +28,13 @@ const Routes = () => (
         <Students />
       </Route>
       <Route path="/perfil">
-        <Settings />
+        <Profile />
       </Route>
       <Route path="/contato">
         <Contact />
+      </Route>
+      <Route path="/alunos">
+        <Students />
       </Route>
       <Route path="*">
         <NotFound />

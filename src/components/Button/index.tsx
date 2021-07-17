@@ -3,27 +3,19 @@ import Container from './style';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'submit' | 'reset' | 'button';
+  width?: 'large' | 'default' | 'small';
   text: string;
-  width?: '100%' | '34rem' | '17rem';
-  disabled?: boolean;
 }
 
 const Button = ({ type, text, width, disabled, ...props }: ButtonProps) => (
-  <Container
-    style={{ width }}
-    type={type}
-    disabled={disabled}
-    className="text-normal"
-    {...props}
-  >
+  <Container type={type} className={`text-normal ${width}`} {...props}>
     {text}
   </Container>
 );
 
 Button.defaultProps = {
   type: 'submit',
-  disabled: false,
-  width: '100%',
+  width: 'default',
 };
 
 export default Button;

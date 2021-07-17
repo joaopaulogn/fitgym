@@ -1,44 +1,56 @@
 import React from 'react';
-import Container from '../style';
+import Container from './style';
 import Field, { FieldProps } from '..';
-import setValidityState, {
-  removeInvalidState,
-} from './events/setValidityState';
-import setButtonState from './events/setButtonState';
+import ErrorMessage from '../../ErrorMessage';
+import Instructions from '../../Instructions';
 
 interface AuthFieldProps extends FieldProps {
-  children?: React.ReactElement;
+  instructions?: string | React.ReactElement;
 }
 
 const AuthField = ({
   type,
   name,
-  id,
-  title,
   placeholder,
-  icon,
-  button,
+  title,
   children,
-}: AuthFieldProps) => (
-  <Container className="field">
-    <Field
-      type={type}
-      name={name}
-      id={id}
-      title={title}
-      placeholder={placeholder}
-      icon={icon}
-      button={button}
-      onFocus={({ currentTarget }) => removeInvalidState(currentTarget)}
-      onBlur={setValidityState}
-      onChange={setButtonState}
-    />
-    {children}
-  </Container>
-);
+  instructions,
+  ...props
+}: AuthFieldProps) => {
+  function handleOnFocus({ currentTarget }: React.FocusEvent) {
+    const $error = currentTarget.parentElement?.nextElementSibling
+      ?.nextElementSibling as HTMLSpanElement;
+    const $instructions = $error.previousElementSibling as HTMLSpanElement;
+
+    currentTarget.classList.remove('invalid');
+    $error.classList.remove('visible');
+    $error.setAttribute('aria-hidden', 'true');
+    $instructions.classList.remove('hidden');
+    $instructions.setAttribute('aria-hidden', 'false');
+  }
+
+  return (
+    <Container datatype="field">
+      <Field
+        type={type}
+        name={name}
+        title={title}
+        placeholder={placeholder}
+        onFocus={(event) => handleOnFocus(event)}
+        {...props}
+      >
+        {children}
+      </Field>
+      <>
+        <Instructions text={instructions} />
+        <ErrorMessage />
+      </>
+    </Container>
+  );
+};
 
 AuthField.defaultProps = {
-  children: React.Fragment,
+  instructions: React.Fragment,
 };
 
 export default AuthField;

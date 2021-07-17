@@ -1,45 +1,34 @@
 import React from 'react';
 import Container from './style';
 import Input, { InputProps } from '../Input';
-import Icon from '../Icon';
 
 export interface FieldProps extends InputProps {
-  title: string | undefined;
-  placeholder: string | undefined;
-  autoComplete?: string;
-  icon: string;
-  button?: React.ReactElement;
+  title?: string;
+  children?: React.ReactElement;
 }
 
 const Field = ({
   type,
   name,
-  id,
   title,
   placeholder,
-  icon,
-  button,
-  autoComplete,
+  children,
   ...props
 }: FieldProps) => (
   <Container>
     <Input
       type={type}
       name={name}
-      id={id}
       title={title}
-      autoComplete={autoComplete}
       placeholder={placeholder}
       {...props}
     />
-    {button}
-    <Icon icon={icon} />
+    {children}
   </Container>
 );
 
 Field.defaultProps = {
-  button: React.Fragment,
-  autoComplete: 'off',
+  children: React.Fragment,
 };
 
 export default Field;

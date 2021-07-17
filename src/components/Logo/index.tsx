@@ -2,18 +2,18 @@ import React from 'react';
 import Container from './style';
 
 interface LogoProps {
-  primaryColor?: boolean;
+  color?: 'primary' | 'white';
 }
 
-const Logo = ({ primaryColor }: LogoProps) => (
-  <Container className={primaryColor ? 'logo primary-color' : 'logo'}>
+const Logo = ({ color }: LogoProps) => (
+  <Container className={`logo ${color}`}>
     <div className="icon material-icons-outlined" />
     FITGYM
   </Container>
 );
 
 Logo.defaultProps = {
-  primaryColor: false,
+  color: 'white',
 };
 
 export default Logo;

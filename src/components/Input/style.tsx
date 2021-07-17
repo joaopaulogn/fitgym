@@ -1,6 +1,6 @@
-import stlyed from 'styled-components';
+import styled from 'styled-components';
 
-const Container = stlyed.input`
+const Container = styled.input`
     font-family: inherit;
     font-size: 1.4rem;
     line-height: 2rem;

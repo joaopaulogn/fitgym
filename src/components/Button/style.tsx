@@ -17,6 +17,18 @@ const Container = styled.button`
     color: var(--text-color);
     cursor: default;
   }
+
+  &.large {
+    width: 100%;
+  }
+
+  &.default {
+    width: 34rem;
+  }
+
+  &.small {
+    width: 17rem;
+  }
 `;
 
 export default Container;

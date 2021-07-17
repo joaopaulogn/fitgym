@@ -2,9 +2,10 @@ import React from 'react';
 import Icon from '../Icon';
 
 const ChangeVisibility = () => {
+
   function changeVisibility({ currentTarget }: React.MouseEvent) {
     const button = currentTarget as HTMLSpanElement;
-    const passwordField = currentTarget.previousElementSibling as HTMLInputElement;
+    const passwordField = currentTarget.parentElement?.firstElementChild as HTMLInputElement;
 
     if (passwordField.type === 'password') {
       button.innerHTML = 'visibility';
@@ -22,8 +23,9 @@ const ChangeVisibility = () => {
       icon="visibility_off"
       role="button"
       aria-pressed={false}
-      className="material-icons-outlined button"
+      data-button="password"
       onClick={changeVisibility}
+
       style={{ cursor: 'pointer' }}
     />
   );

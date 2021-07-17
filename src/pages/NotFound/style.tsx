@@ -2,22 +2,20 @@ import styled from 'styled-components';
 
 const Container = styled.main`
   display: flex;
+  height: 22rem;
 
   .text {
     width: 32.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin-right: 6rem;
+    color: var(--text-color);
 
     p:first-child {
       font-weight: 700;
       text-transform: uppercase;
       color: var(--primary-color);
-    }
-
-    p:nth-child(2) {
-      color: var(--text-color);
-      margin: var(--margin-default) 0 var(--margin-large) 0;
     }
 
     span {

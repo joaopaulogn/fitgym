@@ -4,16 +4,14 @@ import Heading from '../Heading';
 import Subheading from '../Subheading';
 
 interface HeaderProps {
-  heading: React.ReactElement | React.ReactText;
+  heading: string | Array<string>;
   subheading: string;
 }
 
 const Header = ({ heading, subheading }: HeaderProps) => (
   <Container>
-    <div className="heading-box">
-      <Heading>{heading}</Heading>
-      <Subheading text={subheading} />
-    </div>
+    <Heading>{heading}</Heading>
+    <Subheading text={subheading} />
   </Container>
 );
 

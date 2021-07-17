@@ -3,12 +3,12 @@ import Container from './style';
 
 interface IconProps extends ButtonHTMLAttributes<HTMLSpanElement> {
   icon: string | undefined;
-  outlined?: boolean;
+  filled?: boolean;
 }
 
-const Icon = ({ icon, outlined, ...props }: IconProps) => (
+const Icon = ({ icon, filled, ...props }: IconProps) => (
   <Container
-    className={`material-icons${!outlined ? '' : '-outlined'} icon`}
+    className={`material-icons${!filled ? '-outlined' : ''} icon`}
     {...props}
   >
     {icon}
@@ -16,7 +16,7 @@ const Icon = ({ icon, outlined, ...props }: IconProps) => (
 );
 
 Icon.defaultProps = {
-  outlined: true,
+  filled: false,
 };
 
 export default Icon;

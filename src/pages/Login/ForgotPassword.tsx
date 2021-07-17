@@ -1,29 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import AuthScreen from '../../components/AuthScreen';
-import EmailInput from '../../components/Field/Auth/Email';
+import AuthScreen from '../../components/PageScreen/Auth';
+import CNPJ from '../../components/Field/Auth/CNPJ';
 import InfoText from '../../components/InfoText';
+import Link from '../../components/Link';
 
 const ForgotPassword = () => (
   <AuthScreen
     heading="Esqueceu sua senha?"
     subheading="Digite seu e-mail de cadastro para redefini-la"
-    formFields={
-      <>
-        <EmailInput />
-      </>
-    }
-    buttonText="Redefinir senha"
-    // onSubmit={validateForgotPassword}
+    fields={<CNPJ />}
+    button="Redefinir senha"
     bottomContent={
-      <InfoText
-        text="Se o e-mail digitado for o mesmo do cadastro, você receberá as
-          instruções para redefinir sua senha."
-      >
-        <Link to="/" className="button text-normal">
-          Voltar
-        </Link>
-      </InfoText>
+      <>
+        <InfoText
+          text="Se o CNPJ digitado for o mesmo do cadastro, você será redirecionado
+          para redefinir sua senha."
+        />
+        <Link path="/" text="Voltar" icon="chevron_left" />
+      </>
     }
   />
 );

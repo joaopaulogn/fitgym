@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import Link from '../Link';
 import Container from './style';
 import Option from '../Options/Dashboard';
-import Icon from '../Icon';
 import Logo from '../Logo';
 
-const Menu = () => {
+const DashboardMenu = () => {
   const history = useHistory();
 
   function handleLogout(event: React.MouseEvent) {
@@ -28,8 +28,8 @@ const Menu = () => {
         <Logo />
         <div className="profile">
           <div className="info">
-            <p className="text-normal">Léo Fitness</p>
-            <span className="text-small">leofitness@gmail.com</span>
+            <p className="text-normal">Léo Fitness Academia</p>
+            <span className="text-small">05.666.388/0001-00</span>
           </div>
         </div>
 
@@ -44,16 +44,10 @@ const Menu = () => {
       </header>
 
       <footer className="text-normal">
-        <a href="/">Termos</a>
-        <a href="/">Privacidade</a>
-
-        <Link to="/" className="button" onClick={handleLogout}>
-          <Icon icon="logout" />
-          Sair
-        </Link>
+        <Link path="/" text="Sair" icon="logout" onClick={handleLogout} />
       </footer>
     </Container>
   );
 };
 
-export default Menu;
+export default DashboardMenu;

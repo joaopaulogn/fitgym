@@ -9,6 +9,14 @@ interface OptionProps extends React.LiHTMLAttributes<HTMLLIElement> {
   text: string;
 }
 
+function updatePageTitle(element: HTMLLIElement) {
+  document.title = (element.children[1] as HTMLAnchorElement).innerText;
+}
+
+function activeOption(element: HTMLLIElement) {
+  element.classList.add('active');
+}
+
 const Option = ({ path, icon, text }: OptionProps) => {
   React.useEffect(() => {
     const { pathname } = window.location;
@@ -16,18 +24,14 @@ const Option = ({ path, icon, text }: OptionProps) => {
       '[data-option="dashboard"]',
     ) as NodeListOf<HTMLLIElement>;
 
-    function updatePageTitle(element: HTMLLIElement) {
-      document.title = (element.children[1] as HTMLAnchorElement).innerText;
-    }
-
     if (pathname === '/contato') {
-      contact.classList.add('active');
+      activeOption(contact);
       updatePageTitle(contact);
     } else if (pathname.startsWith('/perfil')) {
-      settings.classList.add('active');
+      activeOption(settings);
       updatePageTitle(settings);
     } else {
-      students.classList.add('active');
+      activeOption(students);
       updatePageTitle(students);
     }
   });
