@@ -18,6 +18,9 @@ const Container = styled.button`
     cursor: default;
   }
 
+  &.loading {
+  }
+
   &.large {
     width: 100%;
   }

@@ -5,12 +5,12 @@ interface FooterProps {
   position: 'left' | 'right';
 }
 
-const year = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
 
 const Footer = ({ position }: FooterProps) => (
   <Container className={position}>
     <p className="text-small copyright">
-      <span className="text">Copyright &copy; {year}</span>
+      <span className="text">Copyright &copy; {currentYear}</span>
       <span className="divider">•</span>
       <span className="text">Todos os direitos reservados</span>
     </p>

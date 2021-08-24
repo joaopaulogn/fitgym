@@ -2,32 +2,44 @@ import styled from 'styled-components';
 
 const Container = styled.main`
   display: flex;
-  height: 22rem;
+  align-items: center;
 
   .text {
-    width: 32.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-right: 6rem;
+    margin-right: 10rem;
+  }
+
+  .heading {
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 2.8rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-bottom: var(--margin-default);
+
+    & > span {
+      display: block;
+    }
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 2rem;
     color: var(--text-color);
 
-    p:first-child {
-      font-weight: 700;
-      text-transform: uppercase;
+    & > a {
       color: var(--primary-color);
-    }
+      font-weight: 500;
 
-    span {
-      display: inline-block;
-      margin-top: var(--margin-default);
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
   .balloon {
     position: absolute;
     top: 7rem;
-    right: 22rem;
+    right: 12rem;
   }
 `;
 

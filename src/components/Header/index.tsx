@@ -3,7 +3,7 @@ import Container from './style';
 import Heading from '../Heading';
 import Subheading from '../Subheading';
 
-interface HeaderProps {
+export interface HeaderProps {
   heading: string | Array<string>;
   subheading: string;
 }

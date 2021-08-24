@@ -1,9 +1,11 @@
 import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from '../../routes/Routes';
+import { AuthProvider } from '../../contexts/auth';
+import Routes from '../../routes';
 
 const App = () => (
-  <Routes />
+  <AuthProvider>
+    <Routes />
+  </AuthProvider>
 );
 
 export default App;

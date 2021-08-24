@@ -1,13 +1,9 @@
 import React from 'react';
 import Container from './style';
-import Menu from '../../Menu';
-import Header from '../../Header';
-import Footer from '../../Footer';
+import Header, { HeaderProps } from '../../Header';
 
-interface DashboardScreenProps {
-  heading: string | Array<string>;
-  subheading: string;
-  children: React.ReactElement;
+interface DashboardScreenProps extends HeaderProps {
+  children: JSX.Element;
 }
 
 const DashboardScreen = ({
@@ -16,14 +12,8 @@ const DashboardScreen = ({
   children,
 }: DashboardScreenProps) => (
   <Container>
-    <Menu />
-    <div className="container">
-      <main>
-        <Header heading={heading} subheading={subheading} />
-        {children}
-      </main>
-      <Footer position="right" />
-    </div>
+    <Header heading={heading} subheading={subheading} />
+    <section>{children}</section>
   </Container>
 );
 

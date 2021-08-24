@@ -3,7 +3,7 @@ import Container from './style';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: string;
-  name: string | undefined;
+  name?: string;
 }
 
 const Input = ({ type, name, id, ...props }: InputProps) => (

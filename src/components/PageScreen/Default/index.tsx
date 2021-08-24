@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Container from './style';
 import Logo from '../../Logo';
 
-export interface DefaultScreenProps {
-  children: React.ReactElement;
+export interface PageScreenProps {
+  children: ReactElement;
 }
 
-const DefaultScreen = ({ children }: DefaultScreenProps) => (
+const PageScreen = ({ children }: PageScreenProps) => (
   <Container>
     <section className="container">
       <Logo color="primary" />
@@ -15,4 +15,4 @@ const DefaultScreen = ({ children }: DefaultScreenProps) => (
   </Container>
 );
 
-export default DefaultScreen;
+export default PageScreen;

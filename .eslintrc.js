@@ -28,7 +28,7 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": 0,
     'no-param-reassign': 0,
     'no-unused-expressions': 0,
-    'import/no-cycle': 0,
+    'import/no-cycle': 1,
     'no-plusplus': 0,
     'no-console': 0,
     'no-implicity-any': 0,

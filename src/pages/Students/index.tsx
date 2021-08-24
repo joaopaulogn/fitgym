@@ -1,51 +1,40 @@
-import React from 'react';
-import Container from './style';
-import DashboardScreen from '../../components/PageScreen/Dashboard';
-import SearchBar from '../../components/Field/Search';
-import Button from '../../components/Button';
-import StudentData from '../../components/StudentData';
+import React, { FormEvent, useEffect, useState } from 'react';
+import Students from './view';
+import useAuthContext from '../../contexts/auth';
+import Student from '../../entities/Student';
+import api from '../../services/api';
 
-const Students = () => (
-  <DashboardScreen
-    heading="Alunos"
-    subheading="Procure por um aluno para ver ou editar suas informações"
-  >
-    <Container>
-      <div className="search-box">
-        <SearchBar />
-        <Button text="Pesquisar" />
-      </div>
+const StudentsContainer = () => {
+  const { user } = useAuthContext();
+  const [students, setStudents] = useState<Array<Student> | null>(
+    [] as Array<Student>,
+  );
+  const token = localStorage.getItem('token');
+  const [searchBarValue, setSearchBarValue] = useState('');
 
-      <section className="students">
-        <table>
-          <thead>
-            <tr className="text-normal">
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Quantidade de treino</th>
-            </tr>
-          </thead>
+  useEffect((): void => {
+    async function fetchData(): Promise<void> {
+      const response = await api.get(`/students/${user?.getID()}`, {
+        headers: { 'x-access-token': token },
+      });
+      const data = response.data as Array<Student>;
 
-          <tbody>
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-            <StudentData />
-          </tbody>
-        </table>
-      </section>
-    </Container>
-  </DashboardScreen>
-);
-export default Students;
+      setStudents(data);
+    }
+    fetchData();
+  }, [token, user]);
+
+  function handleSearchValue(event: FormEvent<HTMLInputElement>) {
+    setSearchBarValue(event.currentTarget.value);
+  }
+
+  return (
+    <Students
+      studentsData={students}
+      handleSearchBarValue={handleSearchValue}
+      searchBarValue={searchBarValue}
+    />
+  );
+};
+
+export default StudentsContainer;

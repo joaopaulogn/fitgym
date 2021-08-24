@@ -7,7 +7,7 @@ interface HeadingProps {
 
 const Heading = ({ children }: HeadingProps) => (
   <Container className="heading">
-    {children.constructor.name === 'String' ? (
+    {typeof children === 'string' ? (
       children
     ) : (
       <>

@@ -2,33 +2,44 @@ import React from 'react';
 import Container from './style';
 import Input, { InputProps } from '../Input';
 
-export interface FieldProps extends InputProps {
-  title?: string;
-  children?: React.ReactElement;
+export interface Field2Props extends InputProps {
+  name?: string;
+  value?: string;
+  children: JSX.Element;
+  instructionMessage?: string | JSX.Element;
+  errorMessage?: string | JSX.Element;
 }
 
 const Field = ({
   type,
   name,
+  value,
   title,
   placeholder,
   children,
+  instructionMessage,
+  errorMessage,
   ...props
-}: FieldProps) => (
-  <Container>
+}: Field2Props) => (
+  <Container datatype="field">
     <Input
       type={type}
       name={name}
+      value={value}
       title={title}
       placeholder={placeholder}
       {...props}
     />
     {children}
+    {instructionMessage}
+    {errorMessage}
   </Container>
 );
 
 Field.defaultProps = {
-  children: React.Fragment,
+  value: '',
+  instructionMessage: React.Fragment,
+  errorMessage: React.Fragment,
 };
 
 export default Field;

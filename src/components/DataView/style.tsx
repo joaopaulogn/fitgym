@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
+  justify-content: flex-start;
   margin-bottom: var(--margin-default);
   padding: var(--padding-default);
   position: relative;
@@ -22,7 +23,9 @@ const Container = styled.div`
   }
 
   & > .content {
+    width: 100%;
     display: flex;
+    justify-content: center;
     margin-left: var(--margin-largest);
 
     input {

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Button from '../Button';
 import Container from './style';
 
 interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
-  children: React.ReactElement;
+  children: ReactElement;
   button: string;
 }
 

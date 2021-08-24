@@ -2,37 +2,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 
-input, textarea, select {
-    font-family:  inherit;
+img {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 button {
-    font-family: inherit;
-    outline: none;
-    border: none;
+  font-family: inherit;
+  outline: none;
+  border: none;
 }
 
 a {
-    text-decoration: none;
-    outline: none;
+  text-decoration: none;
+  outline: none;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 tr {
@@ -42,45 +48,45 @@ tr {
 
 /* Variables */
 :root {
-    /* Colors */
-    --primary-color: #7f39fb;
-    --primary-color-light: #F8F5FF;
-    --gray-color: #ebe9eb;
-    --text-color: #505668;
-    --text-color-alpha: rgba(80, 86, 104, 0.5);
-    --white-color: #fff;
-    --white-color-alpha: rgba(255, 255, 255, .5);
-    --error-color: #e84545;
-    --error-color-alpha: rgba(232, 69, 69, 0.8);
+  /* Colors */
+  --primary-color: #7f39fb;
+  --primary-color-light: #f8f5ff;
+  --gray-color: #ebe9eb;
+  --text-color: #505668;
+  --text-color-alpha: rgba(80, 86, 104, 0.5);
+  --white-color: #fff;
+  --white-color-alpha: rgba(255, 255, 255, 0.5);
+  --error-color: #e84545;
+  --error-color-alpha: rgba(232, 69, 69, 0.8);
 
-    /* Margin */
-    --margin-largest: 3.6rem;
-    --margin-large: 2.4rem;
-    --margin-default: 1.2rem;
-    --margin-small: 0.8rem;
-    --margin-smallest: 0.4rem;
+  /* Margin */
+  --margin-largest: 3.6rem;
+  --margin-large: 2.4rem;
+  --margin-default: 1.2rem;
+  --margin-small: 0.8rem;
+  --margin-smallest: 0.4rem;
 
-    /* Padding */
-    --padding-large: 2.4rem;
-    --padding-default: 1.2rem;
-    --padding-small: 0.8rem;
+  /* Padding */
+  --padding-large: 2.4rem;
+  --padding-default: 1.2rem;
+  --padding-small: 0.8rem;
 
-    /* Border-Radius */
-    --border-radius: 0.8rem;
+  /* Border-Radius */
+  --border-radius: 0.8rem;
 }
 
 /* Utility classes */
 .text-normal {
-    font-size: 1.4rem;
-    line-height: 2rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
 }
 
 .text-small {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
 }
 
 .title {
-    font-size: 2.4rem;
-    line-height: 2.8rem;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
 }

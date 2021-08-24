@@ -3,69 +3,92 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   position: relative;
-
-  .icon {
-    width: 2.4rem;
-    position: absolute;
-
-    &:first-of-type {
-      left: 0;
-    }
-
-    &:last-of-type {
-      right: 0;
-    }
-  }
 
   input {
     width: 100%;
-    padding: var(--padding-default) 0;
-    padding-left: calc(2.4rem + var(--padding-small));
-    padding-right: 0;
+    padding: var(--padding-default) 0 var(--padding-default)
+      calc(2.4rem + var(--padding-small));
     color: var(--text-color-alpha);
     border-bottom: 0.1rem solid var(--text-color-alpha);
     background-color: transparent;
-
-    &:focus {
-      border-bottom-color: var(--primary-color);
-    }
+    transition: all 0.4s;
 
     &::placeholder {
       color: var(--text-color-alpha);
     }
 
+    &:focus,
+    &.valid {
+      border-bottom-color: var(--primary-color);
+      color: var(--primary-color);
+
+      & ~ .icon {
+        color: var(--primary-color);
+      }
+    }
+
+    &.invalid {
+      color: var(--error-color-alpha);
+      border-bottom-color: var(--error-color-alpha);
+
+      & ~ span {
+        color: var(--error-color-alpha);
+      }
+    }
+
+    & ~ .icon {
+      transition: all 0.4s;
+    }
+
+    &[type='password'],
     &[type='search'] {
       padding-right: calc(2.4rem + var(--padding-small));
+    }
+
+    &[type='search'] {
       padding-left: calc(2.4rem + var(--margin-small) + var(--margin-default));
       background-color: var(--white-color);
       border: 0.1rem solid transparent;
       border-radius: var(--border-radius);
 
-      & + .icon {
-        left: 1.2rem;
+      &:focus {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
 
-        & + .icon {
+        & ~ .icon {
+          color: var(--primary-color);
+        }
+      }
+
+      & ~ .icon {
+        &:first-of-type {
+          left: 1.2rem;
+        }
+
+        &:nth-of-type(2) {
           right: 1.2rem;
         }
       }
     }
+  }
 
-    &[type='password'] {
-      padding-right: calc(2.4rem + var(--padding-small));
+  .icon {
+    position: absolute;
+    top: 2.4rem;
+    transform: translateY(-50%);
+
+    &:first-of-type {
+      left: 0;
     }
 
-    &[type='number'] {
-      padding-left: 0;
-      padding-right: calc(2.4rem + var(--padding-default));
+    &:nth-of-type(2) {
+      right: 0;
+    }
 
-      appearance: none;
-      -moz-appearance: none;
-
-      &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-      }
+    .instructions {
+      margin-top: var(--margin-small);
     }
   }
 `;

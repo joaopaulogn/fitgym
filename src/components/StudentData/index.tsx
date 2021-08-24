@@ -1,35 +1,42 @@
-import React from 'react';
+import React, { LiHTMLAttributes } from 'react';
 import Icon from '../Icon';
 import Container from './style';
 
-// interface StudentDataProps {
-//   name: string;
-//   email: string;
-//   phone: string;
-//   repeatTime: string;
-// }
+interface StudentDataProps extends LiHTMLAttributes<HTMLLIElement> {
+  id: string | undefined;
+  name: string | undefined;
+  email: string | undefined;
+  phone: string | undefined;
+  amountTraining: string | undefined;
+}
 
-const StudentInfo = () => (
-  <Container className="text-normal">
-    <td className="data">
+const StudentInfo = ({
+  id,
+  name,
+  email,
+  phone,
+  amountTraining,
+}: StudentDataProps) => (
+  <Container className="text-normal" id={id}>
+    <div className="data">
       <Icon icon="person_outline" />
-      <span>João Paulo Gonçalves Neto</span>
-    </td>
+      <span className="name">{name}</span>
+    </div>
 
-    <td className="data">
+    <div className="data">
       <Icon icon="alternate_email" />
-      <span>joaopaulo.gn@outlook.com</span>
-    </td>
+      <span className="email">{email}</span>
+    </div>
 
-    <td className="data">
+    <div className="data">
       <Icon icon="phone" />
-      <span>(31) 92003-8601</span>
-    </td>
+      <span className="phone">{phone}</span>
+    </div>
 
-    <td className="data">
+    <div className="data">
       <Icon icon="repeat" />
-      <span>3x na semana</span>
-    </td>
+      <span className="amountTraining">{amountTraining}</span>
+    </div>
   </Container>
 );
 
