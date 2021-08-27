@@ -5,7 +5,7 @@ interface SubheadingProps {
   text: string;
 }
 
-const Subheading = ({ text }: SubheadingProps) => (
+const Subheading = ({ text }: SubheadingProps): JSX.Element => (
   <Container className="subheading">{text}</Container>
 );
 

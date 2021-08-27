@@ -2,7 +2,7 @@ import React from 'react';
 import Container from './style';
 import Input, { InputProps } from '../Input';
 
-export interface Field2Props extends InputProps {
+export interface FieldProps extends InputProps {
   name?: string;
   value?: string;
   children: JSX.Element;
@@ -20,7 +20,7 @@ const Field = ({
   instructionMessage,
   errorMessage,
   ...props
-}: Field2Props) => (
+}: FieldProps): JSX.Element => (
   <Container datatype="field">
     <Input
       type={type}

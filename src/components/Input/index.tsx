@@ -6,7 +6,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
 }
 
-const Input = ({ type, name, id, ...props }: InputProps) => (
+const Input = ({ type, name, id, ...props }: InputProps): JSX.Element => (
   <Container type={type} name={name} id={!id ? name : id} required {...props} />
 );
 

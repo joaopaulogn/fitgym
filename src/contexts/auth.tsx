@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User } from '../entities/User';
+import User from '../entities/User';
+import AuthRepository from '../repositories/AuthRepository';
+import LocalStorageRepository from '../repositories/LocalStorageRepository';
 import api from '../services/api';
-import fetchUserData from '../services/auth';
 
 interface AuthContextData {
   signed: boolean;
@@ -16,13 +17,16 @@ interface AuthProviderProps {
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     (function loadStorageData() {
-      const storageUser = localStorage.getItem('user');
-      const storageToken = localStorage.getItem('token');
+      const localStorageRepository: LocalStorageRepository = new LocalStorageRepository();
+      const {
+        storageUser,
+        storageToken,
+      } = localStorageRepository.getUserData();
 
       if (storageUser && storageToken) {
         api.defaults.headers['x-access-token'] = storageToken;
@@ -33,20 +37,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   async function signIn(): Promise<User | null> {
     try {
-      const response = await fetchUserData();
-      const newUser: User = new User(
-        response.user.getID(),
-        response.user.getCNPJ(),
-        response.user.getName(),
-      );
+      const auth: AuthRepository = new AuthRepository();
+      const user = (await auth.signIn()).getUser();
 
-      api.defaults.headers['x-access-token'] = response.token;
-      localStorage.setItem('user', JSON.stringify(newUser));
-      localStorage.setItem('token', response.token);
+      await auth.signIn();
+      setTimeout(() => setUser(user), 300);
 
-      setTimeout(() => setUser(newUser), 300);
-
-      return newUser;
+      return user;
     } catch (error) {
       console.error(error);
       return null;
@@ -54,11 +51,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   function signOut(): void {
-    const token = localStorage.getItem('token');
+    const auth: AuthRepository = new AuthRepository();
+    auth.signOut();
 
-    api.post('/logout', {}, { headers: { 'x-access-token': token } });
-    localStorage.clear();
-    setTimeout(() => setUser(null), 300);
+    setTimeout(() => {
+      setUser(null);
+    }, 300);
   }
 
   return (
@@ -68,7 +66,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   );
 };
 
-export default function useAuthContext() {
+export default function useAuthContext(): AuthContextData {
   const context = useContext(AuthContext);
 
   return context;

@@ -4,6 +4,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 require('dotenv/config');
 const { verifyJWT} = require('../config/authentication');
+const User = require('../entities/User');
 
 // Login
 router.post('/login', (req, res) => {
@@ -21,7 +22,7 @@ router.post('/login', (req, res) => {
                     expiresIn: 300, //5min
                 });
 
-                res.send({user: {id, cnpj, name, password: responsePassword}, auth: true, token});
+                res.send({user: new User(id, cnpj, name), isAuthenticated: true, token});
             } else {
                 res.status(401).send({error: 'User unauthorized'});
             }
@@ -69,7 +70,7 @@ router.get('/profile/:key', verifyJWT, (req, res) => {
 // Reset Password
 router.patch('/reset-password/:key', verifyJWT, (req, res) => {
     const { key } = req.params;
-    const {password} = req.body;
+    const { password } = req.body;
     const updateQuery = "UPDATE gym SET password = ? WHERE id = ?";
     const token = req.headers['x-access-token'];
 
@@ -84,11 +85,36 @@ router.patch('/reset-password/:key', verifyJWT, (req, res) => {
 
 // Logout
 const blacklist = [];
-router.post('/logout', (req, res) => {
+router.post('/logout', verifyJWT, (req, res) => {
     const token = req.headers['x-access-token'];
 
     blacklist.push(token);
     res.send({message: 'Logged out user'});
+})
+
+//User
+router.get('/user/:key', (req, res) => {
+    const {key} = req.params;
+    const selectQuery = "SELECT * FROM gym WHERE id = ?";
+
+    database.query(selectQuery, key, (error, result) => {
+        if (error) console.error(error);
+
+        const data = result[0];
+
+         res.send(data)
+    })
+})
+
+//Users
+router.get('/users', (req, res) => {
+    const selectQuery = "SELECT * FROM gym";
+
+    database.query(selectQuery, (error, result) => {
+        if (error) console.error(error);
+
+        res.send(result);
+    })
 })
 
 module.exports = router;

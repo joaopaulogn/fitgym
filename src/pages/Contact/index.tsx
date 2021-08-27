@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import Contact from './view';
 
-const ContactContainer = () => {
+const ContactContainer = (): JSX.Element => {
   function activateOptions({
     currentTarget,
   }: MouseEvent<HTMLInputElement>): void {

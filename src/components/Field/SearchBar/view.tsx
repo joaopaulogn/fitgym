@@ -15,7 +15,7 @@ const SearchBar = ({
   value,
   handleValue,
   handleStudentsSearch,
-}: SearchBarProps) => (
+}: SearchBarProps): JSX.Element => (
   <Field
     type="search"
     name="searchBar"

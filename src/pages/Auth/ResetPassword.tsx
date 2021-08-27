@@ -2,11 +2,9 @@ import React, { FormEvent } from 'react';
 // import { useHistory } from 'react-router-dom';
 import useAuthContext from '../../contexts/auth';
 import AuthScreen from '../../components/PageScreen/Auth';
-import PasswordContainer, {
-  updatePassword,
-} from '../../components/Field/Password/index';
+import PasswordContainer from '../../components/Field/Password/index';
 
-const ResetPassword = () => {
+const ResetPassword = (): JSX.Element => {
   // const history = useHistory();
   const { user } = useAuthContext();
   const [values, setValues] = React.useState({
@@ -14,22 +12,24 @@ const ResetPassword = () => {
     password2: '',
   });
 
-  function handleResetPassword(event: FormEvent) {
-    const id = user?.getID();
+  function handleResetPassword(event: FormEvent): void {
+    const cnpj = user?.cnpj;
     const password = (document.getElementById('password') as HTMLInputElement)
       .value;
 
     event.preventDefault();
-
-    updatePassword(password, id);
   }
 
-  function handlePasswordValue(event: React.ChangeEvent<HTMLInputElement>) {
+  function handlePasswordValue(
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void {
     const { value } = event.currentTarget;
     setValues(() => ({ ...values, password: value }));
   }
 
-  function handlePassword2Value(event: React.ChangeEvent<HTMLInputElement>) {
+  function handlePassword2Value(
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void {
     const { value } = event.currentTarget;
     setValues(() => ({ ...values, password2: value }));
   }

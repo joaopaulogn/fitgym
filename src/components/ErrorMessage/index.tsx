@@ -5,7 +5,7 @@ interface ErrorMessageProps {
   message?: string;
 }
 
-const ErrorMessage = ({ message }: ErrorMessageProps) => (
+const ErrorMessage = ({ message }: ErrorMessageProps): JSX.Element => (
   <Container
     role="alert"
     aria-hidden="true"

@@ -3,14 +3,14 @@ import setErrorState from '../../../components/Field/setErrorState';
 import useAuthContext from '../../../contexts/auth';
 import SignIn from './view';
 
-const SignInContainer = () => {
+const SignInContainer = (): JSX.Element => {
   const { signIn } = useAuthContext();
   const [values, setValues] = useState({
     cnpj: '',
     password: '',
   });
 
-  async function handleLogin(event: React.FormEvent) {
+  async function handleLogin(event: React.FormEvent): Promise<void> {
     const [cnpjField, passwordField] = document.querySelectorAll('input');
     event.preventDefault();
 

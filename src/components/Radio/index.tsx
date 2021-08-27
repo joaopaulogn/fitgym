@@ -8,7 +8,7 @@ interface RadioProps extends InputProps {
   text: string;
 }
 
-const Radio = ({ name, id, text, ...props }: RadioProps) => (
+const Radio = ({ name, id, text, ...props }: RadioProps): JSX.Element => (
   <Container htmlFor={id}>
     <Input type="radio" name={name} id={id} {...props} />
     <span className="radio" />

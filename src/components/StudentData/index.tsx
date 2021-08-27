@@ -7,7 +7,7 @@ interface StudentDataProps extends LiHTMLAttributes<HTMLLIElement> {
   name: string | undefined;
   email: string | undefined;
   phone: string | undefined;
-  amountTraining: string | undefined;
+  trainingAmount: string | undefined;
 }
 
 const StudentInfo = ({
@@ -15,8 +15,8 @@ const StudentInfo = ({
   name,
   email,
   phone,
-  amountTraining,
-}: StudentDataProps) => (
+  trainingAmount,
+}: StudentDataProps): JSX.Element => (
   <Container className="text-normal" id={id}>
     <div className="data">
       <Icon icon="person_outline" />
@@ -35,7 +35,7 @@ const StudentInfo = ({
 
     <div className="data">
       <Icon icon="repeat" />
-      <span className="amountTraining">{amountTraining}</span>
+      <span className="trainingAmount">{trainingAmount}</span>
     </div>
   </Container>
 );

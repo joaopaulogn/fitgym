@@ -15,7 +15,7 @@ const SignIn = ({
   handleCNPJValue,
   handlePasswordValue,
   handleLogin,
-}: SignInProps) => (
+}: SignInProps): JSX.Element => (
   <AuthScreen
     heading={['Olá,', 'bem-vindo de volta']}
     subheading="Digite abaixo seus dados"

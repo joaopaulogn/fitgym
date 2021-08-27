@@ -5,7 +5,7 @@ interface LogoProps {
   color?: 'primary' | 'white';
 }
 
-const Logo = ({ color }: LogoProps) => (
+const Logo = ({ color }: LogoProps): JSX.Element => (
   <Container className={`logo ${color}`}>
     <div className="icon material-icons-outlined" />
     FITGYM

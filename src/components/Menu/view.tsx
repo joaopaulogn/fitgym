@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import Container from './style';
 import Logo from '../Logo';
-import GymInfo from '../GymInfo';
+import UsrInfo from '../UserInfo';
 import Link from '../Link';
 import Option from '../Option/Dashboard';
 
@@ -9,11 +9,11 @@ interface DashboardMenuProps {
   handleLogout(event: MouseEvent): void;
 }
 
-const DashboardMenu = ({ handleLogout }: DashboardMenuProps) => (
+const DashboardMenu = ({ handleLogout }: DashboardMenuProps): JSX.Element => (
   <Container>
     <header>
       <Logo />
-      <GymInfo />
+      <UsrInfo />
 
       <nav>
         <ul>

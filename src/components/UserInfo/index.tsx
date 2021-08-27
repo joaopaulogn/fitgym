@@ -2,10 +2,10 @@ import React from 'react';
 import useAuth from '../../contexts/auth';
 import Container from './style';
 
-const GymInfo = () => {
+const UserInfo = (): JSX.Element => {
   const { user } = useAuth();
-  const name = user?.getName();
-  const cnpj = user?.getCNPJ();
+  const name = user?.name;
+  const cnpj = user?.cnpj;
 
   return (
     <Container className="profile">
@@ -17,4 +17,4 @@ const GymInfo = () => {
   );
 };
 
-export default GymInfo;
+export default UserInfo;

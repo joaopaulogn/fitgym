@@ -10,7 +10,7 @@ interface OptionProps extends LiHTMLAttributes<HTMLLIElement> {
   icon: string;
 }
 
-const Option = ({ path, exact, text, icon }: OptionProps) => (
+const Option = ({ path, exact, text, icon }: OptionProps): JSX.Element => (
   <Container>
     <NavLink exact={exact} to={path} data-option="settings">
       <Icon icon={icon} />

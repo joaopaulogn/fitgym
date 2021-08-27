@@ -6,7 +6,7 @@ interface BannerProps {
   alt: string;
 }
 
-const Banner = ({ src, alt }: BannerProps) => (
+const Banner = ({ src, alt }: BannerProps): JSX.Element => (
   <Container className="banner">
     <img src={src} alt={`${alt} banner`} />
   </Container>

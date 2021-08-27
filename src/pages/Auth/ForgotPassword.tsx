@@ -4,7 +4,7 @@ import InfoText from '../../components/InfoText';
 import Link from '../../components/Link';
 import CNPJContainer from '../../components/Field/CNPJ/index';
 
-const ForgotPassword = () => {
+const ForgotPassword = (): JSX.Element => {
   const [cnpj, setCnpj] = React.useState('');
 
   // export async function handleForgotPassword(event: React.FormEvent) {
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
   //   }
   // }
 
-  function handleCnpjValue(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleCnpjValue(event: React.ChangeEvent<HTMLInputElement>): void {
     setCnpj(event.currentTarget.value);
   }
 

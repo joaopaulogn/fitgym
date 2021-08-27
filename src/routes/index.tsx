@@ -3,7 +3,7 @@ import useAuthContext from '../contexts/auth';
 import AppRoutes from './app.routes';
 import AuthRoutes from './auth.routes';
 
-const Routes = () => {
+const Routes = (): JSX.Element => {
   const { signed } = useAuthContext();
 
   // if (loading) {

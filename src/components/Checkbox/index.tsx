@@ -6,12 +6,8 @@ interface CheckboxProps {
   text: string;
 }
 
-const Checkbox = ({ text }: CheckboxProps) => (
-  <Container
-    htmlFor="checkbox"
-    id="label"
-    className="label text-small"
-  >
+const Checkbox = ({ text }: CheckboxProps): JSX.Element => (
+  <Container htmlFor="checkbox" id="label" className="label text-small">
     <Input type="checkbox" name="checkbox" id="checkbox" />
     <div className="checkbox">
       <span className="material-icons-outlined" />

@@ -7,7 +7,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
 }
 
-const Button = ({ type, text, width, disabled, ...props }: ButtonProps) => (
+const Button = ({
+  type,
+  text,
+  width,
+  disabled,
+  ...props
+}: ButtonProps): JSX.Element => (
   <Container type={type} className={`text-normal ${width}`} {...props}>
     {text}
   </Container>

@@ -10,7 +10,7 @@ const DashboardScreen = ({
   heading,
   subheading,
   children,
-}: DashboardScreenProps) => (
+}: DashboardScreenProps): JSX.Element => (
   <Container>
     <Header heading={heading} subheading={subheading} />
     <section>{children}</section>

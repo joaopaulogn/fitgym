@@ -3,7 +3,7 @@ import PageScreen from '../../components/PageScreen/Default';
 import Container from './style';
 import Banner from '../../assets/500.svg';
 
-const InternalServerError = () => (
+const InternalServerError = (): JSX.Element => (
   <PageScreen>
     <Container>
       <div className="text">

@@ -3,7 +3,7 @@ import DashboardMenu from './view';
 import useAuthContext from '../../contexts/auth';
 import { activateOption } from '../Option/Dashboard/view';
 
-const DashboardMenuContainer = () => {
+const DashboardMenuContainer = (): JSX.Element => {
   const { signOut } = useAuthContext();
   const { pathname } = window.location;
 

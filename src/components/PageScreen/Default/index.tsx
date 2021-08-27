@@ -6,7 +6,7 @@ export interface PageScreenProps {
   children: ReactElement;
 }
 
-const PageScreen = ({ children }: PageScreenProps) => (
+const PageScreen = ({ children }: PageScreenProps): JSX.Element => (
   <Container>
     <section className="container">
       <Logo color="primary" />

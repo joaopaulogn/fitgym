@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { KeyboardEvent } from 'react';
 import { DefaultProps } from '../Password/view';
 import SearchBar from './view';
 
-const SearchBarContainer = ({ value, handleValue }: DefaultProps) => {
-  function searchForStudents(
-    event: React.KeyboardEvent<HTMLInputElement>,
-  ): void {
+const SearchBarContainer = ({
+  value,
+  handleValue,
+}: DefaultProps): JSX.Element => {
+  function searchForStudents(event: KeyboardEvent<HTMLInputElement>): void {
     const thisElement = event.currentTarget;
     const container = document.querySelector(
       '.students__container',
@@ -17,12 +18,10 @@ const SearchBarContainer = ({ value, handleValue }: DefaultProps) => {
     students.forEach((student) => student.classList.add('disable'));
     students.forEach((student) => {
       const name = student.firstElementChild?.children[1] as HTMLSpanElement;
-      const nameValue = name.innerText.toLowerCase();
+      const studentName = name.innerText.toLowerCase();
       const inputValue = thisElement.value.toLowerCase();
 
-      if (nameValue.startsWith(inputValue)) {
-        student.classList.remove('disable');
-      } else if (thisElement.value === '') {
+      if (studentName.startsWith(inputValue) || thisElement.value === '') {
         student.classList.remove('disable');
       }
     });

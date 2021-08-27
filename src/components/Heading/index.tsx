@@ -5,7 +5,7 @@ interface HeadingProps {
   children: string | Array<string>;
 }
 
-const Heading = ({ children }: HeadingProps) => (
+const Heading = ({ children }: HeadingProps): JSX.Element => (
   <Container className="heading">
     {typeof children === 'string' ? (
       children

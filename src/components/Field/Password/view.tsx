@@ -4,7 +4,7 @@ import Icon from '../../Icon';
 import setDefaultValue from '../setDefaultValue';
 import Instructions from '../../Instructions';
 import ErrorMessage from '../../ErrorMessage';
-import Visibility from '../../Visibility';
+import PasswordVisibility from '../../PasswordVisibility';
 
 export interface DefaultProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: 'password' | 'confirmPassword';
@@ -27,7 +27,7 @@ const PasswordField = ({
   instructionMessage,
   handleValueValidation,
   handleValue,
-}: PasswordFieldProps) => (
+}: PasswordFieldProps): JSX.Element => (
   <Field
     type="password"
     name={name}
@@ -42,7 +42,7 @@ const PasswordField = ({
   >
     <>
       <Icon icon="lock" />
-      <Visibility />
+      <PasswordVisibility />
     </>
   </Field>
 );

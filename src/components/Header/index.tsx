@@ -8,7 +8,7 @@ export interface HeaderProps {
   subheading: string;
 }
 
-const Header = ({ heading, subheading }: HeaderProps) => (
+const Header = ({ heading, subheading }: HeaderProps): JSX.Element => (
   <Container>
     <Heading>{heading}</Heading>
     <Subheading text={subheading} />

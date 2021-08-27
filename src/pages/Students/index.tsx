@@ -1,10 +1,11 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import Students from './view';
+import React, { FormEvent, ReactNode, useEffect, useState } from 'react';
 import useAuthContext from '../../contexts/auth';
 import Student from '../../entities/Student';
-import api from '../../services/api';
+import StudentData from '../../components/StudentData';
+import Students from './view';
+import StudentRepository from '../../repositories/StudentRepository';
 
-const StudentsContainer = () => {
+const StudentsContainer = (): JSX.Element => {
   const { user } = useAuthContext();
   const [students, setStudents] = useState<Array<Student> | null>(
     [] as Array<Student>,
@@ -13,24 +14,34 @@ const StudentsContainer = () => {
   const [searchBarValue, setSearchBarValue] = useState('');
 
   useEffect((): void => {
-    async function fetchData(): Promise<void> {
-      const response = await api.get(`/students/${user?.getID()}`, {
-        headers: { 'x-access-token': token },
-      });
-      const data = response.data as Array<Student>;
+    (async function fetchData(): Promise<void> {
+      const student: StudentRepository = new StudentRepository(user?.id);
+      const data = await student.getAllData();
 
       setStudents(data);
-    }
-    fetchData();
+    })();
   }, [token, user]);
 
-  function handleSearchValue(event: FormEvent<HTMLInputElement>) {
+  function returnStudentData(): ReactNode {
+    return students?.map(({ id, name, email, phone, trainingAmount }) => (
+      <StudentData
+        key={id}
+        id={id}
+        name={name}
+        email={email}
+        phone={phone}
+        trainingAmount={trainingAmount}
+      />
+    ));
+  }
+
+  function handleSearchValue(event: FormEvent<HTMLInputElement>): void {
     setSearchBarValue(event.currentTarget.value);
   }
 
   return (
     <Students
-      studentsData={students}
+      studentsData={returnStudentData()}
       handleSearchBarValue={handleSearchValue}
       searchBarValue={searchBarValue}
     />

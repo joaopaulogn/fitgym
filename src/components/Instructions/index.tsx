@@ -5,7 +5,7 @@ interface InstructionsProps {
   text: string | ReactElement | undefined;
 }
 
-const Instructions = ({ text }: InstructionsProps) => (
+const Instructions = ({ text }: InstructionsProps): JSX.Element => (
   <Container className="instructions text-small" aria-hidden="false">
     {text}
   </Container>

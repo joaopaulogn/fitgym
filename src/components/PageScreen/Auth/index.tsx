@@ -19,7 +19,7 @@ const AuthScreen = ({
   buttonText,
   bottomContent,
   ...props
-}: AuthProps) => (
+}: AuthProps): JSX.Element => (
   <Container>
     <Heading>{heading}</Heading>
     <Subheading text={subheading} />

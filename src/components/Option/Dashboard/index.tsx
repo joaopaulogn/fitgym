@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import Option from './view';
 
-export function activateOption(element: HTMLLIElement) {
+export function activateOption(element: HTMLLIElement): void {
   element.classList.add('active');
 }
 
@@ -11,8 +11,8 @@ interface OptionProps {
   text: string;
 }
 
-const OptionContainer = ({ path, icon, text }: OptionProps) => {
-  function acitvateOption(event: MouseEvent<HTMLLIElement>) {
+const OptionContainer = ({ path, icon, text }: OptionProps): JSX.Element => {
+  function acitvateOption(event: MouseEvent<HTMLLIElement>): void {
     const items = document.querySelectorAll(
       '[data-option="dashboard"]',
     ) as NodeListOf<HTMLLIElement>;

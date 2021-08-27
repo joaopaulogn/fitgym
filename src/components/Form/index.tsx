@@ -7,7 +7,7 @@ interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   button: string;
 }
 
-const Form = ({ children, button, ...props }: FormProps) => (
+const Form = ({ children, button, ...props }: FormProps): JSX.Element => (
   <Container action="." method="POST" noValidate {...props}>
     {children}
     <Button text={button} />

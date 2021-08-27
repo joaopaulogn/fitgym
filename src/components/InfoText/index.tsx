@@ -5,7 +5,7 @@ interface InfoTextProps {
   text: string;
 }
 
-const InfoText = ({ text }: InfoTextProps) => (
+const InfoText = ({ text }: InfoTextProps): JSX.Element => (
   <Container className="info-text text-small">{text}</Container>
 );
 

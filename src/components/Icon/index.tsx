@@ -6,7 +6,7 @@ interface IconProps extends ButtonHTMLAttributes<HTMLSpanElement> {
   filled?: boolean;
 }
 
-const Icon = ({ icon, filled, ...props }: IconProps) => (
+const Icon = ({ icon, filled, ...props }: IconProps): JSX.Element => (
   <Container
     className={`material-icons${!filled ? '-outlined' : ''} icon`}
     {...props}

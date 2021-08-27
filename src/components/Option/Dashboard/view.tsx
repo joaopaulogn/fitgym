@@ -10,11 +10,17 @@ interface OptionProps extends React.LiHTMLAttributes<HTMLLIElement> {
   handleEvent(event: MouseEvent<HTMLLIElement>): void;
 }
 
-export function activateOption(element: HTMLLIElement) {
+export function activateOption(element: HTMLLIElement): void {
   element.classList.add('active');
 }
 
-const Option = ({ path, icon, text, handleEvent, ...props }: OptionProps) => (
+const Option = ({
+  path,
+  icon,
+  text,
+  handleEvent,
+  ...props
+}: OptionProps): JSX.Element => (
   <Container data-option="dashboard" onClick={handleEvent} {...props}>
     <Icon icon={icon} />
     <Link to={path}>{text}</Link>

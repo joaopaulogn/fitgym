@@ -31,8 +31,8 @@ export class CNPJ {
   }
 }
 
-const CNPJContainer = ({ value, handleValue }: DefaultProps) => {
-  function handleValueMasking(event: KeyboardEvent<HTMLInputElement>) {
+const CNPJContainer = ({ value, handleValue }: DefaultProps): JSX.Element => {
+  function handleValueMasking(event: KeyboardEvent<HTMLInputElement>): void {
     const thisElement = event.currentTarget;
 
     if (event.key !== 'Backspace' && event.key !== 'Delete') {

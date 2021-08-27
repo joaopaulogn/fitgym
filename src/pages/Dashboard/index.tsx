@@ -7,7 +7,7 @@ import Contact from '../Contact';
 import Profile from '../Profile';
 import Menu from '../../components/Menu';
 
-const DashboardScreen = () => (
+const DashboardScreen = (): JSX.Element => (
   <Container>
     <Menu />
     <div className="container">

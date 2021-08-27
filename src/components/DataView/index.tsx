@@ -7,7 +7,7 @@ interface DataProps {
   children: ReactElement | string | undefined;
 }
 
-const Data = ({ roleText, children }: DataProps) => (
+const Data = ({ roleText, children }: DataProps): JSX.Element => (
   <Container className="data text-normal">
     <div className="role">
       <span>{roleText}</span>

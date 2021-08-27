@@ -15,7 +15,7 @@ import PasswordContainer from '../../components/Field/Password';
 //   document.title = newTitle;
 // }
 
-const SignUp = () => {
+const SignUp = (): JSX.Element => {
   const [values, setValues] = React.useState({
     password: '',
     password2: '',
@@ -35,12 +35,16 @@ const SignUp = () => {
   //   });
   // }
 
-  function handlePasswordValue(event: React.ChangeEvent<HTMLInputElement>) {
+  function handlePasswordValue(
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void {
     const { value } = event.currentTarget;
     setValues(() => ({ ...values, password: value }));
   }
 
-  function handlePassword2Value(event: React.ChangeEvent<HTMLInputElement>) {
+  function handlePassword2Value(
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void {
     const { value } = event.currentTarget;
     setValues(() => ({ ...values, password2: value }));
   }

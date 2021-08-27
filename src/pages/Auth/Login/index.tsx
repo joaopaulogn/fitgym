@@ -8,7 +8,7 @@ import ResetPassword from '../ResetPassword';
 import ForgotPassword from '../ForgotPassword';
 import SignIn from '../SignIn';
 
-const AuthPage = () => (
+const AuthPage = (): JSX.Element => (
   <Container>
     <div className="main-content">
       <h1 className="title">

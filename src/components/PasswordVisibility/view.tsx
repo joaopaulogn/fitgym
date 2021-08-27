@@ -1,13 +1,16 @@
 import React, { MouseEvent } from 'react';
-import { VisibilityState } from './state';
+import VisibilityState from '../../enums/PasswordVisibility';
 import Icon from '../Icon';
 
-interface VisibilityProps {
+interface PasswordVisibilityProps {
   visibility: VisibilityState;
   handleEvent(event: MouseEvent<HTMLSpanElement>): void;
 }
 
-const Visibility = ({ visibility, handleEvent }: VisibilityProps) => (
+const PasswordVisibility = ({
+  visibility,
+  handleEvent,
+}: PasswordVisibilityProps): JSX.Element => (
   <Icon
     icon={visibility}
     role="button"
@@ -18,4 +21,4 @@ const Visibility = ({ visibility, handleEvent }: VisibilityProps) => (
   />
 );
 
-export default Visibility;
+export default PasswordVisibility;

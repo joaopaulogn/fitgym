@@ -7,7 +7,7 @@ interface FooterProps {
 
 const currentYear = new Date().getFullYear();
 
-const Footer = ({ position }: FooterProps) => (
+const Footer = ({ position }: FooterProps): JSX.Element => (
   <Container className={position}>
     <p className="text-small copyright">
       <span className="text">Copyright &copy; {currentYear}</span>

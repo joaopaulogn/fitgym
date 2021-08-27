@@ -4,7 +4,7 @@ import PageScreen from '../../components/PageScreen/Default';
 import Banner from '../../assets/404.svg';
 import Balloon from '../../assets/balloon.svg';
 
-const NotFound = () => {
+const NotFound = (): JSX.Element => {
   function handleClick(): void {
     window.location.pathname = '/';
   }

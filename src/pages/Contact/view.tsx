@@ -14,7 +14,7 @@ interface ContactProps {
 const Contact = ({
   handleActiveOptions,
   handleDisabledOptions,
-}: ContactProps) => (
+}: ContactProps): JSX.Element => (
   <DashboardScreen
     heading="Contate-nos"
     subheading="Entre em contato com a gente"

@@ -9,7 +9,13 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   position?: 'left' | 'right';
 }
 
-const Link = ({ path, text, icon, position, ...props }: LinkProps) => (
+const Link = ({
+  path,
+  text,
+  icon,
+  position,
+  ...props
+}: LinkProps): JSX.Element => (
   <Container
     href={path}
     className={`button text-normal ${position}`}

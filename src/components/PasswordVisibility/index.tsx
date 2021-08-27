@@ -1,8 +1,8 @@
 import React, { useState, MouseEvent } from 'react';
-import { VisibilityState } from './state';
+import VisibilityState from '../../enums/PasswordVisibility';
 import Visibility from './view';
 
-const VisibilityContainer = () => {
+const PasswordVisibilityContainer = (): JSX.Element => {
   const [state, setState] = useState<VisibilityState>(VisibilityState.OFF);
 
   function changeTextVisibility({
@@ -26,4 +26,4 @@ const VisibilityContainer = () => {
   return <Visibility visibility={state} handleEvent={changeTextVisibility} />;
 };
 
-export default VisibilityContainer;
+export default PasswordVisibilityContainer;

@@ -24,7 +24,6 @@ const Container = styled.div`
 
   & > .content {
     width: 100%;
-    display: flex;
     justify-content: center;
     margin-left: var(--margin-largest);
 

@@ -25,7 +25,7 @@ const CNPJField = ({
   handleValue,
   handleValueMasking,
   handleValueValidation,
-}: CNPJFieldProps) => (
+}: CNPJFieldProps): JSX.Element => (
   <Field
     type="text"
     name="cnpj"

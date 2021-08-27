@@ -1,5 +1,4 @@
 import React, { FormEvent } from 'react';
-import api from '../../../services/api';
 import PasswordField, { DefaultProps } from './view';
 
 export class Password {
@@ -18,10 +17,6 @@ export class Password {
   }
 }
 
-export async function updatePassword(password: string, id?: number) {
-  await api.patch(`/reset-password/${id}`, { password });
-}
-
 const PasswordContainer = ({
   name,
   title,
@@ -29,7 +24,7 @@ const PasswordContainer = ({
   placeholder,
   instructionMessage,
   handleValue,
-}: DefaultProps) => {
+}: DefaultProps): JSX.Element => {
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
     const thisElement = event.currentTarget;
     const password: Password = new Password(thisElement.value);
