@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import DashboardMenu from './view';
-import useAuthContext from '../../contexts/auth';
-import { activateOption } from '../Option/Dashboard/view';
+import useAuthContext from '../../../contexts/auth';
+import { activateOption } from '../../Option/Dashboard/view';
 
 const DashboardMenuContainer = (): JSX.Element => {
   const { signOut } = useAuthContext();

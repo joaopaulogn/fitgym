@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', 'import', 'jsx-a11y', 'prettier'],
   rules: {
+    "semi": 1,
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -32,6 +33,11 @@ module.exports = {
     "react/prop-types": 0,
     "no-shadow": 0,
     "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
     'no-param-reassign': 1,
     'no-unused-expressions': 1,
     'import/no-cycle': 1,

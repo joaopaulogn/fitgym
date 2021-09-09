@@ -1,9 +1,9 @@
 import React, { MouseEvent } from 'react';
 import Container from './style';
-import Logo from '../Logo';
-import UsrInfo from '../UserInfo';
-import Link from '../Link';
-import Option from '../Option/Dashboard';
+import Logo from '../../Logo';
+import UsrInfo from '../../UserInfo';
+import Link from '../../Link';
+import Option from '../../Option/Dashboard';
 
 interface DashboardMenuProps {
   handleLogout(event: MouseEvent): void;

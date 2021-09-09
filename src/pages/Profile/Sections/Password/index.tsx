@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import useAuthContext from '../../../../contexts/auth';
-import { Password } from '../../../../components/Field/Password';
-import setErrorState from '../../../../components/Field/setErrorState';
+import Password from '../../../../helpers/Password';
 import UserRepository from '../../../../repositories/UserRepository';
 import ResetPassword from './view';
+import Field from '../../../../helpers/Field';
 
 const ResetPasswordContainer = (): JSX.Element => {
   const { user } = useAuthContext();
@@ -13,13 +13,14 @@ const ResetPasswordContainer = (): JSX.Element => {
   });
 
   async function handlePasswordReset(event: FormEvent): Promise<void> {
-    event.preventDefault();
-    const [passwordElement, password2Element] = document.querySelectorAll(
-      'input',
-    ) as NodeListOf<HTMLInputElement>;
+    const passwordElement = document.getElementById(
+      'password',
+    ) as HTMLInputElement;
     const password: Password = new Password(values.password);
     const condition =
       password.isValid() && values.password === values.password2;
+
+    event.preventDefault();
 
     if (condition) {
       try {
@@ -36,32 +37,27 @@ const ResetPasswordContainer = (): JSX.Element => {
         console.error(error);
       }
     } else {
-      setErrorState(
-        passwordElement,
-        'Senha inválida. As senhas devem seguir o padrão e serem idênticas.',
+      const password: Field = new Field(passwordElement);
+      const password2: Field = new Field(
+        document.getElementById('password2') as HTMLInputElement,
       );
-      setErrorState(
-        password2Element,
-        'Siga o padrão e digite a mesma senha digitada acima.',
-      );
+
+      password.setErrorState();
+      password2.setErrorState();
     }
   }
 
   function handleValue(event: ChangeEvent<HTMLInputElement>): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password: value }));
-  }
+    const { name, value } = event.currentTarget;
 
-  function handleValue2(event: ChangeEvent<HTMLInputElement>): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password2: value }));
+    setValues(() => ({ ...values, [name]: value }));
   }
 
   return (
     <ResetPassword
       values={values}
       handleValue={handleValue}
-      handleValue2={handleValue2}
+      handleValue2={handleValue}
       handlePasswordReset={handlePasswordReset}
     />
   );

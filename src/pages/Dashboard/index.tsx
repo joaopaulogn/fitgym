@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import Students from '../Students';
 import Contact from '../Contact';
 import Profile from '../Profile';
-import Menu from '../../components/Menu';
+import Menu from '../../components/Menu/Dashboard';
 
 const DashboardScreen = (): JSX.Element => (
   <Container>

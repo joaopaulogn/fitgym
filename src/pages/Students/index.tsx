@@ -7,11 +7,11 @@ import StudentRepository from '../../repositories/StudentRepository';
 
 const StudentsContainer = (): JSX.Element => {
   const { user } = useAuthContext();
+  const token = localStorage.getItem('token');
+  const [searchBarValue, setSearchBarValue] = useState('');
   const [students, setStudents] = useState<Array<Student> | null>(
     [] as Array<Student>,
   );
-  const token = localStorage.getItem('token');
-  const [searchBarValue, setSearchBarValue] = useState('');
 
   useEffect((): void => {
     (async function fetchData(): Promise<void> {
@@ -35,14 +35,14 @@ const StudentsContainer = (): JSX.Element => {
     ));
   }
 
-  function handleSearchValue(event: FormEvent<HTMLInputElement>): void {
+  function handleSearchBarValue(event: FormEvent<HTMLInputElement>): void {
     setSearchBarValue(event.currentTarget.value);
   }
 
   return (
     <Students
       studentsData={returnStudentData()}
-      handleSearchBarValue={handleSearchValue}
+      handleSearchBarValue={handleSearchBarValue}
       searchBarValue={searchBarValue}
     />
   );

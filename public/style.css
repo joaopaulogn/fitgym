@@ -70,6 +70,7 @@ tr {
   --padding-large: 2.4rem;
   --padding-default: 1.2rem;
   --padding-small: 0.8rem;
+  --padding-smallest: 0.8rem;
 
   /* Border-Radius */
   --border-radius: 0.8rem;

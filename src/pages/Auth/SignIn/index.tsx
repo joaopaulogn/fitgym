@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
-import setErrorState from '../../../components/Field/setErrorState';
 import useAuthContext from '../../../contexts/auth';
+import Field from '../../../helpers/Field';
 import SignIn from './view';
 
 const SignInContainer = (): JSX.Element => {
@@ -11,21 +11,21 @@ const SignInContainer = (): JSX.Element => {
   });
 
   async function handleLogin(event: React.FormEvent): Promise<void> {
-    const [cnpjField, passwordField] = document.querySelectorAll('input');
     event.preventDefault();
 
     try {
       const userData = await signIn();
 
       if (userData === null) {
-        setErrorState(
-          cnpjField,
-          'CNPJ não cadastrado. Por favor, tente novamente.',
+        const cnpjField: Field = new Field(
+          document.getElementById('cnpj') as HTMLInputElement,
         );
-        setErrorState(
-          passwordField,
-          'Senha inválida. Por favor, digite sua senha cadastrada.',
+        const passwordField: Field = new Field(
+          document.getElementById('password') as HTMLInputElement,
         );
+
+        cnpjField.setErrorState();
+        passwordField.setErrorState();
       }
     } catch (error) {
       // TODO: Lidar com os erros
@@ -33,21 +33,16 @@ const SignInContainer = (): JSX.Element => {
     }
   }
 
-  function handleCNPJValue(event: ChangeEvent<HTMLInputElement>): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, cnpj: value }));
-  }
+  function handleValue(event: ChangeEvent<HTMLInputElement>): void {
+    const { name, value } = event.currentTarget;
 
-  function handlePasswordValue(event: ChangeEvent<HTMLInputElement>): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password: value }));
+    setValues(() => ({ ...values, [name]: value }));
   }
 
   return (
     <SignIn
       values={values}
-      handleCNPJValue={handleCNPJValue}
-      handlePasswordValue={handlePasswordValue}
+      handleValue={handleValue}
       handleLogin={handleLogin}
     />
   );

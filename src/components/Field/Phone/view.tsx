@@ -1,37 +1,38 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  InputHTMLAttributes,
-  KeyboardEvent,
-} from 'react';
+import React, { ChangeEvent, FormEvent, KeyboardEvent } from 'react';
 import Field from '..';
+import FieldHelper from '../../../helpers/Field';
 import Icon from '../../Icon';
 import Instructions from '../../Instructions';
-import FieldHelper from '../../../helpers/Field';
 
-interface DefaultProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface DefaultProps {
   value: string;
+  title: string;
+  placeholder: string;
+  icon?: JSX.Element | string;
   handleValue(event: ChangeEvent<HTMLInputElement>): void;
 }
 
-interface CNPJFieldProps extends DefaultProps {
+interface PhoneFieldProps extends DefaultProps {
   handleValueValidation(event: FormEvent<HTMLInputElement>): void;
   handleValueMasking(event: KeyboardEvent<HTMLInputElement>): void;
 }
 
-const CNPJField = ({
+const PhoneField = ({
   value,
+  title,
+  placeholder,
+  icon,
   handleValue,
   handleValueMasking,
   handleValueValidation,
-}: CNPJFieldProps): JSX.Element => (
+}: PhoneFieldProps): JSX.Element => (
   <Field
     type="text"
-    name="cnpj"
+    name="phone"
     value={value}
-    title="Digite o seu CNPJ"
-    placeholder="CNPJ"
-    maxLength={18}
+    title={title}
+    placeholder={placeholder}
+    onChange={handleValue}
     onKeyDown={handleValueMasking}
     onFocus={({ currentTarget }) =>
       new FieldHelper(currentTarget).setDefaultState()
@@ -40,10 +41,9 @@ const CNPJField = ({
     instructionMessage={
       <Instructions text="Digite somente números, por favor" />
     }
-    onChange={handleValue}
   >
-    <Icon icon="assignment_ind" filled />
+    {typeof icon === 'string' ? <Icon icon="icon" /> : <></>}
   </Field>
 );
 
-export default CNPJField;
+export default PhoneField;

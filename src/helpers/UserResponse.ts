@@ -1,4 +1,4 @@
-import User from './User';
+import User from '../entities/User';
 
 export default class UserReponse {
   public constructor(

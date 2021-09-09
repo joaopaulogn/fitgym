@@ -1,9 +1,11 @@
+/* eslint-disable semi */
+/* eslint-disable prettier/prettier */
 export default interface Student {
-  id?: string;
-  name?: string;
-  email?: string;
-  phone?: string;
-  trainingAmount?: string;
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  trainingAmount: string;
 }
 
 // class Student {

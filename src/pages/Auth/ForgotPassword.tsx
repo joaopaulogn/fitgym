@@ -21,7 +21,7 @@ const ForgotPassword = (): JSX.Element => {
   //   }
   // }
 
-  function handleCnpjValue(event: React.ChangeEvent<HTMLInputElement>): void {
+  function handleValue(event: React.ChangeEvent<HTMLInputElement>): void {
     setCnpj(event.currentTarget.value);
   }
 
@@ -29,7 +29,7 @@ const ForgotPassword = (): JSX.Element => {
     <AuthScreen
       heading="Esqueceu sua senha?"
       subheading="Digite seu CNPJ cadastrado"
-      fields={<CNPJContainer value={cnpj} handleValue={handleCnpjValue} />}
+      fields={<CNPJContainer value={cnpj} handleValue={handleValue} />}
       buttonText="Redefinir senha"
       // onSubmit={(event) => handleForgotPassword(event)};
       bottomContent={

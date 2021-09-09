@@ -1,60 +1,34 @@
 import React, { FormEvent, KeyboardEvent } from 'react';
 import { DefaultProps } from '../Password/view';
+import CNPJ from '../../../helpers/CNPJ';
 import CNPJField from './view';
-
-export class CNPJ {
-  public constructor(private value: string) {
-    this.value = value;
-  }
-
-  public getValue(): string {
-    return this.value;
-  }
-
-  public isValid(): boolean {
-    return this.valueCleaner().length === 14;
-  }
-
-  public valueCleaner(): string {
-    return this.value
-      .replace('.', '')
-      .replace('.', '')
-      .replace('/', '')
-      .replace('-', '');
-  }
-
-  public valueMasking(): string {
-    return this.value.replace(
-      /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,
-      '$1.$2.$3/$4-$5',
-    );
-  }
-}
 
 const CNPJContainer = ({ value, handleValue }: DefaultProps): JSX.Element => {
   function handleValueMasking(event: KeyboardEvent<HTMLInputElement>): void {
-    const thisElement = event.currentTarget;
+    const field = event.currentTarget;
+    const keys = ['Backspace', 'Delete'];
+    const condition = keys.some((key) => event.key !== key);
 
-    if (event.key !== 'Backspace' && event.key !== 'Delete') {
-      if (thisElement.value.length === 2 || thisElement.value.length === 6) {
-        thisElement.value += '.';
-      } else if (thisElement.value.length === 10) {
-        thisElement.value += '/';
-      } else if (thisElement.value.length === 15) {
-        thisElement.value += '-';
+    if (condition) {
+      if (field.value.length === 2 || field.value.length === 6) {
+        field.value += '.';
+      } else if (field.value.length === 10) {
+        field.value += '/';
+      } else if (field.value.length === 15) {
+        field.value += '-';
       }
     }
   }
 
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
-    const thisElement = event.currentTarget;
-    const cnpj: CNPJ = new CNPJ(thisElement.value);
+    const field = event.currentTarget;
+    const cnpj: CNPJ = new CNPJ(field.value);
 
     if (cnpj.isValid()) {
-      thisElement.classList.add('valid');
+      field.classList.add('valid');
     } else {
-      thisElement.classList.remove('valid');
-      thisElement.classList.add('invalid');
+      field.classList.remove('valid');
+      field.classList.add('invalid');
     }
   }
 

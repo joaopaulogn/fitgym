@@ -1,37 +1,26 @@
-import React, { FormEvent } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
-import useAuthContext from '../../contexts/auth';
+// import useAuthContext from '../../contexts/auth';
 import AuthScreen from '../../components/PageScreen/Auth';
 import PasswordContainer from '../../components/Field/Password/index';
 
 const ResetPassword = (): JSX.Element => {
   // const history = useHistory();
-  const { user } = useAuthContext();
-  const [values, setValues] = React.useState({
-    password: '',
-    password2: '',
-  });
+  // const { user } = useAuthContext();
+  const [values, setValues] = useState({ password: '', password2: '' });
 
   function handleResetPassword(event: FormEvent): void {
-    const cnpj = user?.cnpj;
-    const password = (document.getElementById('password') as HTMLInputElement)
-      .value;
+    // const cnpj = user?.cnpj;
+    // const password = (document.getElementById('password') as HTMLInputElement)
+    //   .value;
 
     event.preventDefault();
   }
 
-  function handlePasswordValue(
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password: value }));
-  }
+  function handleValue(event: ChangeEvent<HTMLInputElement>): void {
+    const { name, value } = event.currentTarget;
 
-  function handlePassword2Value(
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password2: value }));
+    setValues(() => ({ ...values, [name]: value }));
   }
 
   return (
@@ -42,14 +31,14 @@ const ResetPassword = (): JSX.Element => {
         <>
           <PasswordContainer
             value={values.password}
-            handleValue={handlePasswordValue}
+            handleValue={handleValue}
           />
           <PasswordContainer
             name="confirmPassword"
             title="Confirme sua senha"
             placeholder="Confirmar senha"
             value={values.password2}
-            handleValue={handlePassword2Value}
+            handleValue={handleValue}
             instructionMessage="As senhas devem seguir o padrão citado acima e serem iguais"
           />
         </>

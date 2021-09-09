@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import AuthScreen from '../../components/PageScreen/Auth';
 import Checkbox from '../../components/Checkbox';
 import PasswordContainer from '../../components/Field/Password';
@@ -16,10 +16,7 @@ import PasswordContainer from '../../components/Field/Password';
 // }
 
 const SignUp = (): JSX.Element => {
-  const [values, setValues] = React.useState({
-    password: '',
-    password2: '',
-  });
+  const [values, setValues] = useState({ password: '', password2: '' });
 
   // function handleRegister(event: React.FormEvent) {
   //   event.preventDefault();
@@ -35,18 +32,10 @@ const SignUp = (): JSX.Element => {
   //   });
   // }
 
-  function handlePasswordValue(
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password: value }));
-  }
+  function handleValue(event: ChangeEvent<HTMLInputElement>): void {
+    const { name, value } = event.currentTarget;
 
-  function handlePassword2Value(
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void {
-    const { value } = event.currentTarget;
-    setValues(() => ({ ...values, password2: value }));
+    setValues(() => ({ ...values, [name]: value }));
   }
 
   return (
@@ -57,14 +46,14 @@ const SignUp = (): JSX.Element => {
         <>
           <PasswordContainer
             value={values.password}
-            handleValue={handlePasswordValue}
+            handleValue={handleValue}
           />
           <PasswordContainer
             name="confirmPassword"
             title="Confirme sua senha"
             placeholder="Confirmar senha"
             value={values.password2}
-            handleValue={handlePassword2Value}
+            handleValue={handleValue}
             instructionMessage="As senhas devem seguir o padrão citado acima e serem iguais"
           />
           <Checkbox text="Criando uma conta, você concorda com os Termos de Serviço e Condições, e Privacidade e Política." />

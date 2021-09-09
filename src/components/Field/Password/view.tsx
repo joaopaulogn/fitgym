@@ -1,16 +1,15 @@
 import React, { ChangeEvent, FormEvent, InputHTMLAttributes } from 'react';
 import Field from '..';
-import Icon from '../../Icon';
-import setDefaultValue from '../setDefaultValue';
 import Instructions from '../../Instructions';
-import ErrorMessage from '../../ErrorMessage';
 import PasswordVisibility from '../../PasswordVisibility';
+import FieldHelper from '../../../helpers/Field';
 
 export interface DefaultProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: 'password' | 'confirmPassword';
   title?: 'Digite sua senha' | 'Confirme sua senha';
   value: string;
   placeholder?: 'Senha' | 'Confirmar senha';
+  icon?: JSX.Element;
   instructionMessage?: string | JSX.Element;
   handleValue(event: ChangeEvent<HTMLInputElement>): void;
 }
@@ -24,6 +23,7 @@ const PasswordField = ({
   value,
   title,
   placeholder,
+  icon,
   instructionMessage,
   handleValueValidation,
   handleValue,
@@ -34,14 +34,15 @@ const PasswordField = ({
     value={value}
     title={title}
     placeholder={placeholder}
-    onFocus={(event) => setDefaultValue(event.currentTarget)}
+    onChange={handleValue}
+    onFocus={({ currentTarget }) =>
+      new FieldHelper(currentTarget).setDefaultState()
+    }
     onBlur={handleValueValidation}
     instructionMessage={<Instructions text={instructionMessage} />}
-    errorMessage={<ErrorMessage />}
-    onChange={handleValue}
   >
     <>
-      <Icon icon="lock" />
+      {icon}
       <PasswordVisibility />
     </>
   </Field>

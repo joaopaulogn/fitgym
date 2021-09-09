@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import User from '../entities/User';
 import AuthRepository from '../repositories/AuthRepository';
-import LocalStorageRepository from '../repositories/LocalStorageRepository';
+import LocalStorage from '../helpers/LocalStorage';
 import api from '../services/api';
 
 interface AuthContextData {
@@ -22,11 +22,8 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
 
   useEffect(() => {
     (function loadStorageData() {
-      const localStorageRepository: LocalStorageRepository = new LocalStorageRepository();
-      const {
-        storageUser,
-        storageToken,
-      } = localStorageRepository.getUserData();
+      const localStorage: LocalStorage = new LocalStorage();
+      const { storageUser, storageToken } = localStorage.getUserData();
 
       if (storageUser && storageToken) {
         api.defaults.headers['x-access-token'] = storageToken;

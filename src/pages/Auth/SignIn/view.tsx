@@ -5,15 +5,13 @@ import PasswordContainer from '../../../components/Field/Password/index';
 
 interface SignInProps {
   values: { cnpj: string; password: string };
-  handleCNPJValue(event: ChangeEvent<HTMLInputElement>): void;
-  handlePasswordValue(event: ChangeEvent<HTMLInputElement>): void;
+  handleValue(event: ChangeEvent<HTMLInputElement>): void;
   handleLogin(event: FormEvent): void;
 }
 
 const SignIn = ({
   values,
-  handleCNPJValue,
-  handlePasswordValue,
+  handleValue,
   handleLogin,
 }: SignInProps): JSX.Element => (
   <AuthScreen
@@ -21,10 +19,10 @@ const SignIn = ({
     subheading="Digite abaixo seus dados"
     fields={
       <>
-        <CNPJContainer value={values.cnpj} handleValue={handleCNPJValue} />
+        <CNPJContainer value={values.cnpj} handleValue={handleValue} />
         <PasswordContainer
           value={values.password}
-          handleValue={handlePasswordValue}
+          handleValue={handleValue}
           instructionMessage="Digite sua senha"
         />
       </>

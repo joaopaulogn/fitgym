@@ -1,39 +1,26 @@
 import React, { FormEvent } from 'react';
+import Password from '../../../helpers/Password';
+import Icon from '../../Icon';
 import PasswordField, { DefaultProps } from './view';
-
-export class Password {
-  public constructor(private value: string) {
-    this.value = value;
-  }
-
-  public getValue(): string {
-    return this.value;
-  }
-
-  public isValid(): boolean {
-    return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-      this.getValue(),
-    );
-  }
-}
 
 const PasswordContainer = ({
   name,
   title,
   value,
   placeholder,
+  icon,
   instructionMessage,
   handleValue,
 }: DefaultProps): JSX.Element => {
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
-    const thisElement = event.currentTarget;
-    const password: Password = new Password(thisElement.value);
+    const field = event.currentTarget;
+    const password: Password = new Password(field.value);
 
     if (password.isValid()) {
-      thisElement.classList.add('valid');
+      field.classList.add('valid');
     } else {
-      thisElement.classList.remove('valid');
-      thisElement.classList.add('invalid');
+      field.classList.remove('valid');
+      field.classList.add('invalid');
     }
   }
 
@@ -43,6 +30,7 @@ const PasswordContainer = ({
       title={title}
       value={value}
       placeholder={placeholder}
+      icon={icon}
       instructionMessage={instructionMessage}
       handleValueValidation={handleValueValidation}
       handleValue={handleValue}
@@ -54,6 +42,7 @@ PasswordContainer.defaultProps = {
   name: 'password',
   title: 'Digite sua senha',
   placeholder: 'Senha',
+  icon: <Icon icon="lock" />,
   instructionMessage: (
     <>
       Sua senha deve seguir o padrão abaixo: <br />

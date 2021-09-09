@@ -78,7 +78,7 @@ router.patch('/reset-password/:key', verifyJWT, (req, res) => {
         if (error) console.error(error);
 
         token
-            ? res.send({message: 'Updated password'})
+            ? res.status(201).send({message: 'Updated password'})
             : res.status(401).send({error: 'User unauthorized'})
     })
 })

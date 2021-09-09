@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Container from './style';
 import Input, { InputProps } from '../Input';
 
 export interface FieldProps extends InputProps {
   name?: string;
   value?: string;
-  children: JSX.Element;
+  children?: JSX.Element;
   instructionMessage?: string | JSX.Element;
-  errorMessage?: string | JSX.Element;
 }
 
 const Field = ({
@@ -18,7 +17,6 @@ const Field = ({
   placeholder,
   children,
   instructionMessage,
-  errorMessage,
   ...props
 }: FieldProps): JSX.Element => (
   <Container datatype="field">
@@ -28,18 +26,18 @@ const Field = ({
       value={value}
       title={title}
       placeholder={placeholder}
+      className={children ? 'authentication' : ''}
       {...props}
     />
     {children}
     {instructionMessage}
-    {errorMessage}
   </Container>
 );
 
 Field.defaultProps = {
   value: '',
-  instructionMessage: React.Fragment,
-  errorMessage: React.Fragment,
+  children: Fragment,
+  instructionMessage: Fragment,
 };
 
 export default Field;
