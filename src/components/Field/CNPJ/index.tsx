@@ -1,6 +1,6 @@
 import React, { FormEvent, KeyboardEvent } from 'react';
+import { isValidCNPJ } from '../../../utils/validation';
 import { DefaultProps } from '../Password/view';
-import CNPJ from '../../../helpers/CNPJ';
 import CNPJField from './view';
 
 const CNPJContainer = ({ value, handleValue }: DefaultProps): JSX.Element => {
@@ -22,9 +22,9 @@ const CNPJContainer = ({ value, handleValue }: DefaultProps): JSX.Element => {
 
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
     const field = event.currentTarget;
-    const cnpj: CNPJ = new CNPJ(field.value);
+    const condition = isValidCNPJ();
 
-    if (cnpj.isValid()) {
+    if (condition) {
       field.classList.add('valid');
     } else {
       field.classList.remove('valid');

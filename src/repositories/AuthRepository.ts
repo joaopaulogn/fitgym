@@ -1,22 +1,20 @@
-import CNPJ from '../helpers/CNPJ';
 import UserReponse from '../helpers/UserResponse';
 import api from '../services/api';
-import LocalStorage from '../helpers/LocalStorage';
+import { clearCNPJValue } from '../utils/format';
+import LocalStorageRepository from './LocalStorageRepository';
 
 class AuthRepository {
   public async signIn(): Promise<UserReponse> {
-    const localStorage: LocalStorage = new LocalStorage();
-    const cnpjValue = (document.getElementById('cnpj') as HTMLInputElement)
+    const localStorageRepository: LocalStorageRepository =
+      new LocalStorageRepository();
+    const password = (document.getElementById('password') as HTMLInputElement)
       .value;
-    const passwordValue = (document.getElementById(
-      'password',
-    ) as HTMLInputElement).value;
-    const cleanValue: string = new CNPJ(cnpjValue).clearValue();
-    const response = await api.post('/login', { cleanValue, passwordValue });
+    const cnpj = clearCNPJValue();
+    const response = await api.post('/login', { cnpj, password });
     const { token, user } = response.data;
 
     api.defaults.headers['x-access-token'] = token;
-    localStorage.saveUserData(user, token);
+    localStorageRepository.saveUserData(user, token);
 
     return user;
   }

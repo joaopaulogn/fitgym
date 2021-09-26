@@ -1,12 +1,12 @@
 import User from '../backend/entities/User';
-import Student from '../entities/Student';
+import { Student } from '../types/student';
 
 interface ILocalStorage {
   storageUser: string | null;
   storageToken: string | null;
 }
 
-class LocalStorage {
+class LocalStorageRepository {
   public saveUserData(user: User, token: string): void {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
@@ -30,4 +30,4 @@ class LocalStorage {
   }
 }
 
-export default LocalStorage;
+export default LocalStorageRepository;

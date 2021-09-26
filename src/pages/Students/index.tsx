@@ -1,6 +1,6 @@
 import React, { FormEvent, ReactNode, useEffect, useState } from 'react';
 import useAuthContext from '../../contexts/auth';
-import Student from '../../entities/Student';
+import { Student } from '../../types/student';
 import StudentData from '../../components/StudentData';
 import Students from './view';
 import StudentRepository from '../../repositories/StudentRepository';

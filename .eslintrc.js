@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', 'import', 'jsx-a11y', 'prettier'],
   rules: {
+    "react/jsx-no-bind": 0,
     "semi": 1,
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",

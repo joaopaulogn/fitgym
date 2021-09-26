@@ -76,7 +76,8 @@ const StudentScreenContainer = ({
     const button = event.currentTarget;
     const selectContainer = event.currentTarget.parentElement;
     const selectedOption = selectContainer?.firstElementChild as HTMLLIElement;
-    const optionsContainer = selectedOption?.nextElementSibling as HTMLDivElement;
+    const optionsContainer =
+      selectedOption?.nextElementSibling as HTMLDivElement;
     const html = document.documentElement;
 
     optionsContainer.classList.add('active');

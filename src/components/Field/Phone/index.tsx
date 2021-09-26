@@ -1,5 +1,5 @@
 import React, { FormEvent, Fragment, KeyboardEvent } from 'react';
-import Phone from '../../../helpers/Phone';
+import { isValidPhone } from '../../../utils/validation';
 import PhoneField, { DefaultProps } from './view';
 
 const PhoneFieldContainer = ({
@@ -11,10 +11,9 @@ const PhoneFieldContainer = ({
 }: DefaultProps): JSX.Element => {
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
     const field = event.currentTarget;
-    const { value } = field;
-    const phone: Phone = new Phone(value);
+    const condition = isValidPhone();
 
-    if (!phone.isValid()) field.classList.add('invalid');
+    if (!condition) field.classList.add('invalid');
   }
 
   function handleValueMasking(event: KeyboardEvent<HTMLInputElement>): void {

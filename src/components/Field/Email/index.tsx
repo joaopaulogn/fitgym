@@ -1,5 +1,5 @@
 import React, { FormEvent, Fragment } from 'react';
-import Email from '../../../helpers/Email';
+import { isValidEmail } from '../../../utils/validation';
 import EmailField, { DefaultProps } from './view';
 
 const EmailFieldContainer = ({
@@ -11,9 +11,9 @@ const EmailFieldContainer = ({
 }: DefaultProps): JSX.Element => {
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
     const field = event.currentTarget;
-    const email: Email = new Email(field.value);
+    const conditon = isValidEmail();
 
-    if (!email.isValid()) field.classList.add('invalid');
+    if (!conditon) field.classList.add('invalid');
   }
 
   return (

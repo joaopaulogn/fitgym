@@ -1,4 +1,4 @@
-import LocalStorage from './LocalStorage';
+import LocalStorageRepository from '../repositories/LocalStorageRepository';
 
 interface IStudentScreen {
   labels: NodeListOf<HTMLSpanElement>;
@@ -28,7 +28,7 @@ export default class StudentScreen {
   }
 
   public setViewMode(): void {
-    const storageStudent: LocalStorage = new LocalStorage();
+    const storageStudent: LocalStorageRepository = new LocalStorageRepository();
     const {
       fields,
       labels,

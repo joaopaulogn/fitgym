@@ -4,14 +4,18 @@ const SECRET = process.env.SECRET;
 
 // Check if token exists
 function verifyJWT(req, res, next) {
-    const token = req.headers['x-access-token'];
-    
-    jwt.verify(token, SECRET, (err, decoded) => {
-        if (err) return res.status(401).send({error: 'Token not found. Unauthorized.'})
+    const authHeader = req.headers['authorization'];
 
-        req.userId = decoded.userId;
-        next();
-    });
+    if (authHeader) {
+        const token = authHeader.split(' ')[1];
+
+        jwt.verify(token, SECRET, (err, decoded) => {
+            req.userId = decoded.userId;
+            next();
+        });
+    } else {
+        res.status(401).send({isAuthenticated: false, status: 'User unauthorized'})
+    }
 }
 
 module.exports = {

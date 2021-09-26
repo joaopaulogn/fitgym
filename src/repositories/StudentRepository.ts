@@ -1,4 +1,4 @@
-import Student from '../entities/Student';
+import { Student } from '../types/student';
 import api from '../services/api';
 
 class StudentRepository {

@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import useAuthContext from '../../../../contexts/auth';
-import Password from '../../../../helpers/Password';
 import UserRepository from '../../../../repositories/UserRepository';
 import ResetPassword from './view';
 import Field from '../../../../helpers/Field';
+import { isValidPassword } from '../../../../utils/validation';
 
 const ResetPasswordContainer = (): JSX.Element => {
   const { user } = useAuthContext();
@@ -16,9 +16,7 @@ const ResetPasswordContainer = (): JSX.Element => {
     const passwordElement = document.getElementById(
       'password',
     ) as HTMLInputElement;
-    const password: Password = new Password(values.password);
-    const condition =
-      password.isValid() && values.password === values.password2;
+    const condition = isValidPassword() && values.password === values.password2;
 
     event.preventDefault();
 

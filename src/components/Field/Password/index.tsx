@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import Password from '../../../helpers/Password';
+import { isValidPassword } from '../../../utils/validation';
 import Icon from '../../Icon';
 import PasswordField, { DefaultProps } from './view';
 
@@ -14,9 +14,9 @@ const PasswordContainer = ({
 }: DefaultProps): JSX.Element => {
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
     const field = event.currentTarget;
-    const password: Password = new Password(field.value);
+    const condition = isValidPassword();
 
-    if (password.isValid()) {
+    if (condition) {
       field.classList.add('valid');
     } else {
       field.classList.remove('valid');

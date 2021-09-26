@@ -1,10 +1,10 @@
 class User {
-    constructor(id, cnpj, name, password) {
+    constructor(id, cnpj, name) {
         this.id = id;
         this.cnpj = cnpj;
         this.name = name;
     }
-
+    
     getID() {
         return this.id;
     }

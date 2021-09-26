@@ -1,5 +1,5 @@
 import React, { FormEvent, Fragment } from 'react';
-import Name from '../../../helpers/Name';
+import { isValidName } from '../../../utils/validation';
 import NameField, { DefaultProps } from './view';
 
 const NameFieldContainer = ({
@@ -10,9 +10,9 @@ const NameFieldContainer = ({
 }: DefaultProps): JSX.Element => {
   function handleValueValidation(event: FormEvent<HTMLInputElement>): void {
     const field = event.currentTarget;
-    const name: Name = new Name(field.value);
+    const condition = isValidName();
 
-    if (!name.isValid()) field.classList.add('invalid');
+    if (!condition) field.classList.add('invalid');
   }
 
   return (
